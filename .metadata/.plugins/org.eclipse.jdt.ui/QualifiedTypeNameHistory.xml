@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="negocio.CamareroABM"/>
+<fullyQualifiedTypeName name="negocio.ComandaABM"/>
+<fullyQualifiedTypeName name="negocio.ClienteABM"/>
+<fullyQualifiedTypeName name="datos.TipoCliente"/>
+<fullyQualifiedTypeName name="datos.EstadoMesa"/>
+<fullyQualifiedTypeName name="datos.Salon"/>
+<fullyQualifiedTypeName name="datos.Mesa"/>
+<fullyQualifiedTypeName name="datos.Cliente"/>
+<fullyQualifiedTypeName name="datos.Camarero"/>
+<fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+<fullyQualifiedTypeName name="datos.Conversion"/>
+<fullyQualifiedTypeName name="datos.Comanda"/>
+<fullyQualifiedTypeName name="datos.Receta"/>
+<fullyQualifiedTypeName name="datos.Rubro"/>
+<fullyQualifiedTypeName name="datos.SubRubro"/>
+<fullyQualifiedTypeName name="datos.Producto"/>
+</qualifiedTypeNameHistroy>

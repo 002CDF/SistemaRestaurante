@@ -1,0 +1,18 @@
+~12/05:
+Duda para consultar en grupo:
+2- Tuve que hacer un ItemReceta entre Ingrediente y Receta ya que Receta no tiene una cantidad en sí, sino un ingrediente en particular para esa receta
+3- El itemReceta iría en el diagrama de clases? Si es que no va, creo que el ItemListaPrecio tambien habría que sacarlo
+4- Cambié conversión que a mi parecer no tiene que tener un objeto Ingrediente como atributo sino que solamente Ingrediente tiene que tener el atributo conversión para saber de que tipo de medida se está hablando
+5- En el diagrama de clases eliminé la lista de precios que estaba en la clase Producto ya que lo vamos a manejar de otra forma (la que acordamos)
+6- La disponibilidad se refiere a un menú completo con todos sus productos o a cada producto de un determinado menú?
+7- Qué sería el atributo habitacion en comanda? es necesario? cual sería su utilidad?
+8- El ticket necesita la lista de productos. Lo correcto sería unirlo con ItemComanda o con Comanda directamente?
+9- La mesa tiene un patrón state que no va en el DER. Pero cual sería el atributo de mesa que cambiaría el estado? Provisionalmente agregué un atributo entero estadoMesa (1-Disponible, 2-Ocupada, 3-Finalizada). En el diagrama de clases también iría este atributo en mesa?
+10- El usuario que realiza la comanda tiene que ir como atributo en la comanda? (tanto en el DER como en el DC)
+~16/05:
+1- Como darle persistencia a la capacidad de la mesa en comanda?
+2- Una comanda tiene un solo ticket asignado?
+3- Como diseñar en el DER un ticket final y un ticket detalle?
+4- La relacion entre Mesa y EstadoMesa es 1 a 1?
+5- Es necesario que una lista de precios se pueda asignar a dos tipos de cliente?
+6- Es necesario agregar un booleano para dar de baja o alta un menú?

@@ -1,0 +1,60 @@
+package test;
+
+import negocio.CamareroABM;
+import negocio.ClienteABM;
+import negocio.ComandaABM;
+import negocio.ConversionABM;
+import negocio.IngredienteABM;
+import negocio.ItemComandaABM;
+import negocio.ItemRecetaABM;
+import negocio.ItemTicketABM;
+import negocio.ListaPrecioABM;
+import negocio.MenuABM;
+import negocio.MesaABM;
+import negocio.PrivilegioABM;
+import negocio.ProductoABM;
+import negocio.RecetaABM;
+import negocio.RubroABM;
+import negocio.SalonABM;
+import negocio.StockABM;
+import negocio.SubRubroABM;
+import negocio.TicketABM;
+import negocio.TipoClienteABM;
+import negocio.TipoUsuarioABM;
+import negocio.UsuarioABM;
+import negocio.ViandaABM;
+import datos.ItemListaPrecio;
+
+public class TestAgregarObjeto {
+
+	public static void main(String[] args) {
+		//Se crean los abm de todas las clases
+		CamareroABM camareroABM = new CamareroABM();
+		ClienteABM clienteABM = new ClienteABM();
+		ComandaABM comandaABM = new ComandaABM();
+		ConversionABM conversionABM = new ConversionABM();
+		IngredienteABM ingredienteABM = new IngredienteABM();
+		ItemComandaABM itemComandaABM = new ItemComandaABM();
+		ItemListaPrecio itemListaPrecioABM = new ItemListaPrecio();
+		ItemRecetaABM itemRecetaABM = new ItemRecetaABM();
+		ItemTicketABM itemTicketABM = new ItemTicketABM();
+		ListaPrecioABM listaPrecioABM = new ListaPrecioABM();
+		MenuABM menuABM = new MenuABM();
+		MesaABM mesaABM = new MesaABM();
+		PrivilegioABM privilegioABM = new PrivilegioABM();
+		ProductoABM productoABM = new ProductoABM();
+		RecetaABM recetaABM = new RecetaABM();
+		RubroABM rubroABM = new RubroABM();
+		SalonABM salonABM = new SalonABM();
+		StockABM stockABM = new StockABM();
+		SubRubroABM subRubroABM = new SubRubroABM();
+		TicketABM ticketABM = new TicketABM();
+		TipoClienteABM tipoClienteABM = new TipoClienteABM();
+		TipoUsuarioABM tipoUsuarioABM = new TipoUsuarioABM();
+		UsuarioABM usuarioABM = new UsuarioABM();
+		ViandaABM viandaABM = new ViandaABM();
+		//Se envia cada constructo al ABM para ser creado y agregado a la BD
+		
+	}
+
+}
