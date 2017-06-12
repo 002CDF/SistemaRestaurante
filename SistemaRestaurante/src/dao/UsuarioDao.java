@@ -68,6 +68,17 @@ public class UsuarioDao {
 		}
 		return objeto;
 	}
+	public Usuario traerUsuario(String nombreUsuario, String password) throws HibernateException {
+		Usuario objeto = null ;
+		try {
+			iniciaOperacion();
+			String hql = "from Usuario where nombreUsuario=" +nombreUsuario+ "and password=" +password;
+			objeto = (Usuario)session.createQuery(hql).uniqueResult();
+		} finally {
+			session .close();
+		}
+		return objeto;
+	}
 	@SuppressWarnings ( "unchecked" )
 	public List<Usuario> traerUsuario() throws HibernateException {
 		List<Usuario> lista= null ;

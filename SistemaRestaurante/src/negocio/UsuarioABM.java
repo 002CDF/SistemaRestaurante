@@ -24,7 +24,11 @@ public class UsuarioABM {
 	public Usuario traerUsuario(long idUsuario){
 		return dao.traerUsuario(idUsuario);
 	}
-
+	
+	public Usuario traerUsuario(String nombreUsuario, String password){
+		return dao.traerUsuario(nombreUsuario, password);
+	}
+	
 	public List<Usuario> traerUsuario(){
 		return dao.traerUsuario();
 	}
