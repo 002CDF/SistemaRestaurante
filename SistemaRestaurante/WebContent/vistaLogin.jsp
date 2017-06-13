@@ -13,8 +13,8 @@ pageEncoding = "ISO-8859-1" %>
 <% Usuario usuario=(Usuario)request.getAttribute("usuario"); %>
 <BR>
 nombreUsuario: <%= usuario.getNombreUsuario() %> <BR>
-contraseña : <%= usuario.getPassword() %> <BR>
+password : <%= usuario.getPassword() %> <BR>
 <BR>
-<A href = "/SistemaHotelero/index.jsp"> Volver... </A>
+<A href = "/SistemaRestaurante/index.jsp"> Volver... </A>
 </BODY>
 </html>

@@ -9,7 +9,7 @@ pageEncoding = "ISO-8859-1" %>
 </HEAD>
 <BODY>
 <%@ include file = "/cabecera.jsp" %>
-<FORM method="POST" action ="/SistemaFrances/MostrarClienteJSP ">
+<FORM method="POST" action ="/SistemaRestaurante/LoginJSP ">
 Búsqueda de usuarios <BR><BR>
 <TABLE border = "0">
 <TR>
