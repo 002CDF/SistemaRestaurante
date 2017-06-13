@@ -6,14 +6,13 @@ pageEncoding = "ISO-8859-1" %>
 <html>
 <head>
 <meta http-equiv = "Content-Type" content = "text/html; charset=ISO-8859-1" >
-<title> Sistema Hotelero </title>
+<title> Sistema Restaurante </title>
 </head>
 <BODY>
 <%@ include file = "/cabecera.jsp" %>
 <% Usuario usuario=(Usuario)request.getAttribute("usuario"); %>
 <BR>
-nombreUsuario: <%= usuario.getNombreUsuario() %> <BR>
-password : <%= usuario.getPassword() %> <BR>
+Se ha logueado correctamente como <%= usuario.getNombreUsuario() %> <BR>
 <BR>
 <A href = "/SistemaRestaurante/index.jsp"> Volver... </A>
 </BODY>
