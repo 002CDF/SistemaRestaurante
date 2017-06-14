@@ -6,7 +6,7 @@ import java.util.List;
 public class ItemTicketABM {
 	private ItemTicketDao dao = new ItemTicketDao();
 
-	public int agregarItemTicket(Producto producto, double precioUnitario, int cantidad){
+	public int agregarItemTicket(Producto producto, double precioUnitario, long cantidad){
 		ItemTicket i = new ItemTicket (producto, precioUnitario, cantidad);
 		return dao.agregarItemTicket(i);
 	}

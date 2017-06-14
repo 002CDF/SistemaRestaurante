@@ -4,7 +4,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
-public abstract class Mesa {
+public class Mesa {
 	protected long idMesa;
 	protected EstadoMesa estadoMesa;
 	protected Salon salon;

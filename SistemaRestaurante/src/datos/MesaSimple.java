@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.ArrayList;
 public class MesaSimple extends Mesa{
 	private long idMesaSimple;
-	private int capacidad;
+	private long capacidad;
 	
 	public MesaSimple(){}
 
-	public MesaSimple(EstadoMesa estadoMesa, Salon salon, long idMesaSimple, int capacidad) {
+	public MesaSimple(EstadoMesa estadoMesa, Salon salon, long idMesaSimple, long capacidad) {
 		super(estadoMesa, salon);
 		this.idMesaSimple = idMesaSimple;
 		this.capacidad = capacidad;
@@ -24,11 +24,11 @@ public class MesaSimple extends Mesa{
 		this.idMesaSimple = idMesaSimple;
 	}
 
-	public int getCapacidad() {
+	public long getCapacidad() {
 		return capacidad;
 	}
 
-	public void setCapacidad(int capacidad) {
+	public void setCapacidad(long capacidad) {
 		this.capacidad = capacidad;
 	}
 

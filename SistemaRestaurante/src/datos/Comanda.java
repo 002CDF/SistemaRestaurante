@@ -11,13 +11,13 @@ public class Comanda {
 	private Cliente cliente;
 	private Set<ItemComanda> itemComandas;
 	private Camarero camarero;
-	private int numHabitacion;
+	private long numHabitacion;
 	private boolean activo;
 	
 	public Comanda(){}
 
 	public Comanda(GregorianCalendar fecha, Mesa mesa, Cliente cliente,
-			Camarero camarero, int numHabitacion, boolean activo) {
+			Camarero camarero, long numHabitacion, boolean activo) {
 		super();
 		this.fecha = fecha;
 		this.mesa = mesa;
@@ -75,11 +75,11 @@ public class Comanda {
 		this.camarero = camarero;
 	}
 
-	public int getNumHabitacion() {
+	public long getNumHabitacion() {
 		return numHabitacion;
 	}
 
-	public void setNumHabitacion(int numHabitacion) {
+	public void setNumHabitacion(long numHabitacion) {
 		this.numHabitacion = numHabitacion;
 	}
 

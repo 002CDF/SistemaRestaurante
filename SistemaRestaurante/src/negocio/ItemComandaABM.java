@@ -7,7 +7,7 @@ import datos.Producto;
 public class ItemComandaABM {
 	private ItemComandaDao dao = new ItemComandaDao();
 
-	public int agregarItemComanda(Comanda comanda, Producto producto, int cantidad){
+	public int agregarItemComanda(Comanda comanda, Producto producto, long cantidad){
 		ItemComanda i = new ItemComanda (comanda, producto, cantidad);
 		return dao.agregarItemComanda(i);
 	}

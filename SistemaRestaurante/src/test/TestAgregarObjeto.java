@@ -91,7 +91,7 @@ public class TestAgregarObjeto {
 		Usuario usuario = new Usuario("NombreUsuario", "Password", tipoUsuario);
 		//Se envia cada constructo al ABM para ser creado y agregado a la BD
 		camareroABM.agregarCamarero(111111111, "Nombre", "Apellido");
-		clienteABM.agregarCliente(11111111, "Nombre", "Apellido", tipoCliente);
+		/*clienteABM.agregarCliente(11111111, "Nombre", "Apellido", tipoCliente);
 		comandaABM.agregarComanda(new GregorianCalendar(), mesa, cliente, camarero, 1, true);
 		conversionABM.agregarConversion("Kilo");
 		ingredienteABM.agregarIngrediente("Nombre", "Descripcion", conversion, 2.0, 2.0);
@@ -111,7 +111,7 @@ public class TestAgregarObjeto {
 		ticketABM.agregarTicket(350.25, usuario, false, false);
 		tipoClienteABM.agregarTipoCliente("tipo");
 		usuarioABM.agregarUsuario("NombreUsuario", "Password", tipoUsuario);
-		viandaABM.agregarVianda("descripcion");
+		viandaABM.agregarVianda("descripcion");*/
 	}
 
 }

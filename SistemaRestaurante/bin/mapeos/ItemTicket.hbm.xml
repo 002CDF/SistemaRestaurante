@@ -6,7 +6,7 @@
 <generator class = "identity"/>
 </id> 
 <property column = "precioUnitario" name = "precioUnitario" type = "double"/>
-<property column = "cantidad" name = "cantidad" type = "int"/>
+<property column = "cantidad" name = "cantidad" type = "long"/>
 <many-to-one name = "producto" class = "datos.Producto"
 column = "idProducto" not-null = "true"/>
 <many-to-one name = "ticket" class = "datos.Ticket"

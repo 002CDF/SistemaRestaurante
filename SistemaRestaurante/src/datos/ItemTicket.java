@@ -8,11 +8,11 @@ public class ItemTicket {
 	private long idItemTicket;
 	private Producto producto;
 	private double precioUnitario;
-	private int cantidad;
+	private long cantidad;
 	
 	public ItemTicket(){}
 
-	public ItemTicket(Producto producto, double precioUnitario, int cantidad) {
+	public ItemTicket(Producto producto, double precioUnitario, long cantidad) {
 		super();
 		this.producto = producto;
 		this.precioUnitario = precioUnitario;
@@ -43,11 +43,11 @@ public class ItemTicket {
 		this.precioUnitario = precioUnitario;
 	}
 
-	public int getCantidad() {
+	public long getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
+	public void setCantidad(long cantidad) {
 		this.cantidad = cantidad;
 	}
 	

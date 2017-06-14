@@ -8,11 +8,11 @@ public class ItemComanda {
 	private long idItemComanda;
 	private Comanda comanda;
 	private Producto producto;
-	private int cantidad;
+	private long cantidad;
 	
 	public ItemComanda(){}
 
-	public ItemComanda(Comanda comanda, Producto producto, int cantidad) {
+	public ItemComanda(Comanda comanda, Producto producto, long cantidad) {
 		super();
 		this.comanda = comanda;
 		this.producto = producto;
@@ -43,11 +43,11 @@ public class ItemComanda {
 		this.producto = producto;
 	}
 
-	public int getCantidad() {
+	public long getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
+	public void setCantidad(long cantidad) {
 		this.cantidad = cantidad;
 	}
 

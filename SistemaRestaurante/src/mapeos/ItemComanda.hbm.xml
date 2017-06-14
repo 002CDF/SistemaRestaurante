@@ -5,7 +5,7 @@
 <id column = "idItemComanda" name = "idItemComanda">
 <generator class = "identity"/>
 </id> 
-<property column = "cantidad" name = "cantidad" type = "int"/>
+<property column = "cantidad" name = "cantidad" type = "long"/>
 <many-to-one name = "comanda" class = "datos.Comanda"
 column = "idComanda" not-null = "true"/>
 <many-to-one name = "producto" class = "datos.Producto"

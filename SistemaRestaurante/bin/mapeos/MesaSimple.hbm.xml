@@ -5,6 +5,6 @@
 <id column = "idMesaSimple" name = "idMesaSimple">
 <generator class = "identity"/>
 </id> 
-<property column = "capacidad" name = "capacidad" type = "int"/>
+<property column = "capacidad" name = "capacidad" type = "long"/>
 </class>
 </hibernate-mapping>
