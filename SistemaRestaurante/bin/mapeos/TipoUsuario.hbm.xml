@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 <class name = "datos.TipoUsuario" table = "tipoUsuario">
-<id column = "idPTipoUsuario" name = "idTipoUsuario">
+<id column = "idTipoUsuario" name = "idTipoUsuario">
 <generator class = "identity"/>
 </id>
 <property column = "tipoUsuario" name = "tipoUsuario" type = "string"/>

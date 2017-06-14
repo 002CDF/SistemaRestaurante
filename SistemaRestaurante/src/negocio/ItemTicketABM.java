@@ -2,12 +2,14 @@ package negocio;
 import dao.ItemTicketDao;
 import datos.ItemTicket;
 import datos.Producto;
+import datos.Ticket;
+
 import java.util.List;
 public class ItemTicketABM {
 	private ItemTicketDao dao = new ItemTicketDao();
 
-	public int agregarItemTicket(Producto producto, double precioUnitario, long cantidad){
-		ItemTicket i = new ItemTicket (producto, precioUnitario, cantidad);
+	public int agregarItemTicket(Producto producto, Ticket ticket, double precioUnitario, long cantidad){
+		ItemTicket i = new ItemTicket (producto, ticket, precioUnitario, cantidad);
 		return dao.agregarItemTicket(i);
 	}
 

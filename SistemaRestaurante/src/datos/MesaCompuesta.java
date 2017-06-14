@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.ArrayList;
 public class MesaCompuesta extends Mesa{
 	private long idMesaCompuesta;
-	
 	private Set<MesaSimple> mesasSimples;
 	
 	public MesaCompuesta(){}

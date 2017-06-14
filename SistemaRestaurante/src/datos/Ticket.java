@@ -8,7 +8,6 @@ public class Ticket {
 	private long idTicket;
 	private double monto;
 	private Usuario usuario;
-	private Set<Comanda> comandas;
 	private Set<ItemTicket> itemTickets;
 	private boolean esFiscal;
 	private boolean esCortesia;
@@ -48,14 +47,6 @@ public class Ticket {
 		this.usuario = usuario;
 	}
 
-	public Set<Comanda> getComandas() {
-		return comandas;
-	}
-
-	public void setComandas(Set<Comanda> comandas) {
-		this.comandas = comandas;
-	}
-
 	public Set<ItemTicket> getItemTickets() {
 		return itemTickets;
 	}
@@ -81,7 +72,7 @@ public class Ticket {
 	}
 	
 	
-	public void agregarComanda(Comanda comanda)throws Exception{
+	/*public void agregarComanda(Comanda comanda)throws Exception{
 		List<Comanda> lista = new ArrayList(this.comandas);
 		for(int i=0;i<lista.size();i++){
 			if(lista.get(i).equals(comanda)){
@@ -89,7 +80,7 @@ public class Ticket {
 			}
 		}
 		comandas.add(comanda);
-	}
+	}*/
 	
 	public void agregarItemTicket(ItemTicket itemTicket)throws Exception{
 		List<ItemTicket> lista = new ArrayList(this.itemTickets);
@@ -104,8 +95,8 @@ public class Ticket {
 	@Override
 	public String toString() {
 		return "idTicket= " + idTicket+ ", Monto= " + monto
-				+ ", Usuario= " + usuario+ ", Comandas= " + comandas
-				+ ", Es Fiscal=" + esFiscal+ ", Es Cortesia=" + esCortesia;
+				+ ", Usuario= " + usuario+ ", Es Fiscal=" + esFiscal
+				+ ", Es Cortesia=" + esCortesia;
 	}
 
 	public boolean equals(Ticket ticket){

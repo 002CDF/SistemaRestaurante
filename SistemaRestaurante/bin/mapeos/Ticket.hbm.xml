@@ -10,11 +10,6 @@
 <property column = "esCortesia" name = "esCortesia" type = "boolean"/>
 <many-to-one name = "usuario" class = "datos.Usuario"
 column = "idUsuario" not-null = "true"/>
-<set name="comandas" table="comanda" order-by="idComanda asc"
-	inverse="true" lazy="true" fetch="select">
-	<key column="idTicket" not-null="true" />
-	<one-to-many class="datos.Comanda" />
-</set>
 <set name="itemTickets" table="itemTicket" order-by="idItemTicket asc"
 	inverse="true" lazy="true" fetch="select">
 	<key column="idTicket" not-null="true" />

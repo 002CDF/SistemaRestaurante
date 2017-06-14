@@ -8,10 +8,10 @@
 <property column = "fecha" name = "fecha" type = "calendar"/>
 <set name="precios" table="itemListaPrecio" order-by="idItemListaPrecio asc"
 	inverse="true" lazy="true" fetch="select">
-	<key column="idListaPrecio" not-null="true" />
-	<one-to-many class="datos.ItemListaPrecio" />
+	<key column="idListaPrecio" not-null="true"/>
+	<one-to-many class="datos.ItemListaPrecio"/>
 </set>
-<many-to-one name = "tipoCliente" class = "datos.TipoCliente"
-column = "idTipoCliente" not-null = "true"/>
+<many-to-one name="tipoCliente" class="datos.TipoCliente"
+column="idTipoCliente" not-null="true"/>
 </class>
 </hibernate-mapping>

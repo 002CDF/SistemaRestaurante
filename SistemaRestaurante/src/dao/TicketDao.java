@@ -85,7 +85,6 @@ public class TicketDao {
 			iniciaOperacion();
 			String hql= "from Ticket t where t.idTicket =" +idTicket;
 			objeto=(Ticket)session.createQuery(hql).uniqueResult();
-			Hibernate.initialize(objeto.getComandas());
 			Hibernate.initialize(objeto.getItemTickets());
 		}
 		finally {

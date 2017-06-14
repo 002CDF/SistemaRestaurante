@@ -16,7 +16,7 @@ Búsqueda de usuarios <BR><BR>
 <TD> Nombre de usuario: </TD>
 <TD><INPUT name="nombreUsuario"></TD>
 <TD> Contraseña: </TD>
-<TD><INPUT name="password"></TD>
+<TD><INPUT name="password" type="password"></TD>
 </TR>
 <TR>
 <TD>

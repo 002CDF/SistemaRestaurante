@@ -90,28 +90,36 @@ public class TestAgregarObjeto {
 		Ingrediente ingrediente = new Ingrediente("Nombre", "descripcion", conversion, 20.00, 15.00);
 		Usuario usuario = new Usuario("NombreUsuario", "Password", tipoUsuario);
 		//Se envia cada constructo al ABM para ser creado y agregado a la BD
-		camareroABM.agregarCamarero(111111111, "Nombre", "Apellido");
-		/*clienteABM.agregarCliente(11111111, "Nombre", "Apellido", tipoCliente);
-		comandaABM.agregarComanda(new GregorianCalendar(), mesa, cliente, camarero, 1, true);
-		conversionABM.agregarConversion("Kilo");
-		ingredienteABM.agregarIngrediente("Nombre", "Descripcion", conversion, 2.0, 2.0);
+		//camareroABM.agregarCamarero(111111111, "Nombre", "Apellido"); OK
+		//conversionABM.agregarConversion("Kilo"); OK
+		//menuABM.agregarMenu(new GregorianCalendar(), "Lunes-Martes-Sabado"); OK
+		//viandaABM.agregarVianda("descripcion"); OK
+		//rubroABM.agregarRubro("descripcion"); OK
+		//subRubroABM.agregarSubRubro("descripcion"); OK
+		//recetaABM.agregarReceta("Nombre", "descripcion"); OK
+		//Conversion conversionaux = conversionABM.traerConversion(1); OK, PARA PASARLE A INGREDIENTE
+		//ingredienteABM.agregarIngrediente("Nombre", "Descripcion", conversionaux, 2.0, 2.0); OK
+		//salonABM.agregarSalon("descripcion"); OK
+		//privilegioABM.agregarPrivilegio("privilegio"); OK
+		//tipoClienteABM.agregarTipoCliente("tipo"); OK
+		//tipoUsuarioABM.agregarTipoUsuario("tipoUsuario"); OK
+		//TipoUsuario tipoUsuarioaux = tipoUsuarioABM.traerTipoUsuario(1); OK, PARA PASARLE A USUARIO
+		//usuarioABM.agregarUsuario("NombreUsuario", "Password", tipoUsuarioaux); OK
+		//Usuario usuarioaux = usuarioABM.traerUsuario(1); OK, PARA PASARLE A TICKET
+		//ticketABM.agregarTicket(350.25, usuarioaux, false, false); OK
+		//TipoCliente tipoClienteaux = tipoClienteABM.traerTipoCliente(1); OK, PARA PASARLE A CLIENTE
+		//clienteABM.agregarCliente(11111111, "Nombre", "Apellido", tipoClienteaux); OK
+		//Receta recetaaux = recetaABM.traerReceta(1); OK, PARA PASARLE A ITEMRECETA
+		//Ingrediente ingredienteaux = ingredienteABM.traerIngrediente(1); OK, PARA PASARLE A ITEMRECETA
+		//itemRecetaABM.agregarItemReceta(recetaaux, ingredienteaux, 4); OK
+		//itemTicketABM.agregarItemTicket(productoaux, ticketaux, 20, 2);
+		/*comandaABM.agregarComanda(new GregorianCalendar(), mesa, cliente, camarero, 1, true);
 		itemComandaABM.agregarItemComanda(comanda, producto, 2);
 		itemListaPrecioABM.agregarItemListaPrecio(listaPrecio, producto, 50.00);
-		itemRecetaABM.agregarItemReceta(receta, ingrediente, 4);
-		itemTicketABM.agregarItemTicket(producto, 20, 2);
 		listaPrecioABM.agregarListaPrecio(new GregorianCalendar(), tipoCliente);
-		menuABM.agregarMenu(new GregorianCalendar(), "Lunes-Martes-Sabado");
-		privilegioABM.agregarPrivilegio("privilegio");
 		productoABM.agregarProducto("Nombre", "descripcion", receta, rubro, subRubro, true, "imagen");
-		recetaABM.agregarReceta("Nombre", "descripcion");
-		rubroABM.agregarRubro("descripcion");
-		salonABM.agregarSalon("descripcion");
 		stockABM.agregarStock(ingrediente, 500, 30, 700);
-		subRubroABM.agregarSubRubro("descripcion");
-		ticketABM.agregarTicket(350.25, usuario, false, false);
-		tipoClienteABM.agregarTipoCliente("tipo");
-		usuarioABM.agregarUsuario("NombreUsuario", "Password", tipoUsuario);
-		viandaABM.agregarVianda("descripcion");*/
+		*/
 	}
 
 }

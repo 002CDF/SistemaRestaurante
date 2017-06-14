@@ -7,12 +7,13 @@ import java.util.ArrayList;
 public class ItemTicket {
 	private long idItemTicket;
 	private Producto producto;
+	private Ticket ticket;
 	private double precioUnitario;
 	private long cantidad;
 	
 	public ItemTicket(){}
 
-	public ItemTicket(Producto producto, double precioUnitario, long cantidad) {
+	public ItemTicket(Producto producto, Ticket ticket, double precioUnitario, long cantidad) {
 		super();
 		this.producto = producto;
 		this.precioUnitario = precioUnitario;
@@ -33,6 +34,14 @@ public class ItemTicket {
 
 	public void setProducto(Producto producto) {
 		this.producto = producto;
+	}
+	
+	public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
 	}
 
 	public double getPrecioUnitario() {

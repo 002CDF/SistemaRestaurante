@@ -5,10 +5,10 @@
 <id column = "idCliente" name = "idCliente">
 <generator class = "identity"/>
 </id> 
-<property column = "dni" name = "dni" type = "long"/>
-<property column = "nombre" name = "nombre" type = "string"/>
-<property column = "apellido" name = "apellido" type = "string"/>
-<many-to-one name = "tipoCliente" class = "datos.TipoCliente"
+<property column="dni" name ="dni" type="long"/>
+<property column="nombre" name="nombre" type="string"/>
+<property column="apellido" name="apellido" type ="string"/>
+<many-to-one name="tipoCliente" class="datos.TipoCliente"
 column = "idTipoCliente" not-null = "true"/>
 <set name="comandas" table="comanda" order-by="idComanda asc"
 	inverse="true" lazy="true" fetch="select">
