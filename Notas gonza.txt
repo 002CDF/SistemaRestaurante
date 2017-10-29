@@ -1,1 +1,0 @@
-Formula para la capacidad de las mesas compuestas: 3*2 + (n-2)*2

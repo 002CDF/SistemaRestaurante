@@ -9,6 +9,7 @@ Duda para consultar en grupo:
 8- El ticket necesita la lista de productos. Lo correcto sería unirlo con ItemComanda o con Comanda directamente?
 9- La mesa tiene un patrón state que no va en el DER. Pero cual sería el atributo de mesa que cambiaría el estado? Provisionalmente agregué un atributo entero estadoMesa (1-Disponible, 2-Ocupada, 3-Finalizada). En el diagrama de clases también iría este atributo en mesa?
 10- El usuario que realiza la comanda tiene que ir como atributo en la comanda? (tanto en el DER como en el DC)
+
 ~16/05:
 1- Como darle persistencia a la capacidad de la mesa en comanda?
 2- Una comanda tiene un solo ticket asignado?
@@ -16,3 +17,9 @@ Duda para consultar en grupo:
 4- La relacion entre Mesa y EstadoMesa es 1 a 1?
 5- Es necesario que una lista de precios se pueda asignar a dos tipos de cliente?
 6- Es necesario agregar un booleano para dar de baja o alta un menú?
+
+~29/10:
+1- Formula para la capacidad de las mesas compuestas: 3*2 + (n-2)*2
+2- En caso de no usar la formula se puede usar capacidad 2 para cada mesa?
+2- Vamos a congelar el diseño en el tema de producto(plato)-receta-ingrediente?
+3- El atributo estadoMesa va a quedar en mesa en el DER?
