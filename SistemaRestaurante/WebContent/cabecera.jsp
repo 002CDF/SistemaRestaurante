@@ -8,7 +8,7 @@ pageEncoding = "ISO-8859-1" %>
 <IMG src = "/SistemaRestaurante/images/LogoUnla.jpg">
 </TD>
 <TD align = "center">
-<H1> Orientación a Objetos II </H1>
+<H1> Sistema Restaurante </H1>
 </TD>
 </TR>
 </TABLE>
