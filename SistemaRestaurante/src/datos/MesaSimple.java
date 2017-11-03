@@ -4,24 +4,25 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
+import datos.Mesa;
 public class MesaSimple extends Mesa{
-	private long idMesaSimple;
+	private Mesa mesa;
 	private long capacidad;
 	
 	public MesaSimple(){}
 
-	public MesaSimple(EstadoMesa estadoMesa, Salon salon, long idMesaSimple, long capacidad) {
-		super(estadoMesa, salon);
-		this.idMesaSimple = idMesaSimple;
+	public MesaSimple(Mesa mesa, long capacidad) {
+		super();
+		this.mesa = mesa;
 		this.capacidad = capacidad;
 	}
 
-	public long getIdMesaSimple() {
-		return idMesaSimple;
+	public Mesa getMesa() {
+		return mesa;
 	}
 
-	public void setIdMesaSimple(long idMesaSimple) {
-		this.idMesaSimple = idMesaSimple;
+	public void setMesa(Mesa mesa) {
+		this.mesa = mesa;
 	}
 
 	public long getCapacidad() {
@@ -34,21 +35,9 @@ public class MesaSimple extends Mesa{
 
 	@Override
 	public String toString() {
-		return "idMesaSimple= " + idMesaSimple+ ", Capacidad= " + capacidad;
+		return "MesaSimple [mesa=" + mesa + ", capacidad=" + capacidad + "]";
 	}
 
-	public boolean equals(MesaSimple mesaSimple){
-		boolean igual =false;
-		if (this.getIdMesaSimple()==mesaSimple.getIdMesaSimple()){
-			igual=true;
-		}
-		return igual;
-
-	}
-	
-
-	
-	
 	
 	
 }

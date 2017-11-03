@@ -72,11 +72,12 @@ public class UsuarioDao {
 		Usuario objeto = null ;
 		try {
 			iniciaOperacion();
-			String hql = "from Usuario u where u.nombreUsuario='" +nombreUsuario+ "' and u.password='" +password+ "'";
+			String hql = "from Usuario u where u.nombreUsuario='"+nombreUsuario+"' and u.password='"+password+"'";
 			objeto = (Usuario)session.createQuery(hql).uniqueResult();
 		} finally {
 			session .close();
 		}
+		
 		return objeto;
 	}
 	@SuppressWarnings ( "unchecked" )

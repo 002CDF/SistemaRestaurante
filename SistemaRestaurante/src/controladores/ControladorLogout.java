@@ -5,10 +5,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import negocio.UsuarioABM;
-import datos.Usuario;
-public class ControladorLoginJSP extends HttpServlet {
+public class ControladorLogout extends HttpServlet {
 	protected void doGet(HttpServletRequest request , HttpServletResponse response )
 			throws ServletException, IOException {
 		procesarPeticion(request, response );
@@ -20,16 +19,15 @@ public class ControladorLoginJSP extends HttpServlet {
 	private void procesarPeticion(HttpServletRequest request , HttpServletResponse
 			response ) throws ServletException, IOException {
 		response.setContentType( "text/html;charset=UTF-8" );
+		HttpSession session = request.getSession();
 		try {
-			String nombreUsuario =  request.getParameter("nombreUsuario");
-			String password = request.getParameter("password");
-			UsuarioABM usuarioAbm = new UsuarioABM ();
-			Usuario usuario = usuarioAbm.traerUsuario(nombreUsuario, password);
-			request.setAttribute("usuario", usuario);
-			request.getRequestDispatcher("/vistaLogin.jsp").forward(request, response);
+			session.setAttribute("usuario", "");
+			session.invalidate();
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 		catch (Exception e ) {
-			response .sendError(500, "Los datos ingresados no corresponden a un usuario válido." );
+			response .sendError(500, "Error al cerrar sesion." );
 		}
+		//session.setAttribute("usuario", request.getAttribute("usuario"));
 	}
 }

@@ -13,20 +13,21 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version = "3.
 <welcome-file> default.jsp </welcome-file>
 <welcome-file> usuario.html </welcome-file>
 </welcome-file-list>
+<!-- MAPEO DE SERVLETS -->
 <servlet>
 <servlet-name> ControladorLogin </servlet-name>
 <servlet-class> controladores.ControladorLogin </servlet-class>
 </servlet>
 <servlet-mapping>
 <servlet-name> ControladorLogin </servlet-name>
-<url-pattern> /Login </url-pattern>
+<url-pattern> /Inicio </url-pattern>
 </servlet-mapping>
 <servlet>
-<servlet-name> ControladorLoginJSP </servlet-name>
-<servlet-class> controladores.ControladorLoginJSP </servlet-class>
+<servlet-name> ControladorLogout </servlet-name>
+<servlet-class> controladores.ControladorLogout </servlet-class>
 </servlet>
 <servlet-mapping>
-<servlet-name> ControladorLoginJSP </servlet-name>
-<url-pattern> /LoginJSP </url-pattern>
+<servlet-name> ControladorLogout </servlet-name>
+<url-pattern> /Logout </url-pattern>
 </servlet-mapping>
 </web-app>
