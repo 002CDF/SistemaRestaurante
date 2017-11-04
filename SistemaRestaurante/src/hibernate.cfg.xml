@@ -36,5 +36,6 @@
 <mapping resource="mapeos/Ingrediente.hbm.xml"/>
 <mapping resource="mapeos/Stock.hbm.xml"/>
 <mapping resource="mapeos/Producto.hbm.xml"/>
+<mapping resource="mapeos/Login.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

@@ -1,14 +1,16 @@
 package negocio;
 import dao.UsuarioDao;
 import java.util.List;
+
+import datos.Login;
 import datos.TipoUsuario;
 import datos.Usuario;
 public class UsuarioABM {
 	private UsuarioDao dao = new UsuarioDao();
 
-	public int agregarUsuario(String nombreUsuario, String password,
-			TipoUsuario tipoUsuario){
-		Usuario u = new Usuario (nombreUsuario, password, tipoUsuario);
+	public int agregarUsuario(String nombre, String apellido,
+			TipoUsuario tipoUsuario, Login login){
+		Usuario u = new Usuario (nombre, apellido,tipoUsuario,login);
 		return dao.agregarUsuario(u);
 	}
 
@@ -25,8 +27,8 @@ public class UsuarioABM {
 		return dao.traerUsuario(idUsuario);
 	}
 	
-	public Usuario traerUsuario(String nombreUsuario, String password){
-		return dao.traerUsuario(nombreUsuario, password);
+	public Usuario traerUsuario(String nombre, String apellido){
+		return dao.traerUsuario(nombre, apellido);
 	}
 	
 	public List<Usuario> traerUsuario(){

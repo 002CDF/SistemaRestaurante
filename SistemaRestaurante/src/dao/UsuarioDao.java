@@ -68,11 +68,11 @@ public class UsuarioDao {
 		}
 		return objeto;
 	}
-	public Usuario traerUsuario(String nombreUsuario, String password) throws HibernateException {
+	public Usuario traerUsuario(String nombre, String apellido) throws HibernateException {
 		Usuario objeto = null ;
 		try {
 			iniciaOperacion();
-			String hql = "from Usuario u where u.nombreUsuario='"+nombreUsuario+"' and u.password='"+password+"'";
+			String hql = "from Usuario u where u.nombre='"+nombre+"' and u.apellido='"+apellido+"'";
 			objeto = (Usuario)session.createQuery(hql).uniqueResult();
 		} finally {
 			session .close();

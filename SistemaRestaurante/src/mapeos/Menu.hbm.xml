@@ -1,15 +1,16 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-<class name = "datos.Menu" table = "menu">
-<id column = "idMenu" name = "idMenu">
-<generator class = "identity"/>
-</id> 
-<property column = "fechaUnica" name = "fechaUnica" type = "calendar"/>
-<property column = "disponibilidadSemana" name = "disponibilidadSemana" type = "string"/>
-<set table="itemMenu" name="productos" outer-join="true">
-	<key column="idMenu" />
-	<many-to-many column="idProducto" class="datos.Producto"/>
-</set>
-</class>
+	<class name="datos.Menu" table="menu">
+		<id column="idMenu" name="idMenu">
+			<generator class="identity" />
+		</id>
+		<property column="fechaUnica" name="fechaUnica" type="calendar" />
+		<property column="disponibilidadSemana" name="disponibilidadSemana"
+			type="string" />
+		<set table="itemMenu" name="productos" outer-join="true">
+			<key column="idMenu" />
+			<many-to-many column="idProducto" class="datos.Producto" />
+		</set>
+	</class>
 </hibernate-mapping>

@@ -6,42 +6,29 @@ import java.util.List;
 import java.util.ArrayList;
 public class Usuario {
 	private long idUsuario;
-	private String nombreUsuario;
-	private String password;
+	private String nombre;
+	private String apellido;
 	private TipoUsuario tipoUsuario;
+	private Login login;
 	
 	public Usuario(){}
 
-	public Usuario(String nombreUsuario, String password,
-			TipoUsuario tipoUsuario) {
+	public Usuario(String nombre, String apellido,
+			TipoUsuario tipoUsuario, Login login) {
 		super();
-		this.nombreUsuario = nombreUsuario;
-		this.password = password;
+		this.nombre = nombre;
+		this.apellido = apellido;
 		this.tipoUsuario = tipoUsuario;
+		this.login = login;
+		
 	}
 
 	public long getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(long idUsuario) {
+	protected void setIdUsuario(long idUsuario) {
 		this.idUsuario = idUsuario;
-	}
-
-	public String getNombreUsuario() {
-		return nombreUsuario;
-	}
-
-	public void setNombreUsuario(String nombreUsuario) {
-		this.nombreUsuario = nombreUsuario;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public TipoUsuario getTipoUsuario() {
@@ -52,10 +39,37 @@ public class Usuario {
 		this.tipoUsuario = tipoUsuario;
 	}
 	
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+	
+	
+
 	@Override
 	public String toString() {
-		return "idUsuario= " + idUsuario+ ", Nombre de Usuario= " + nombreUsuario
-				+ ", Password= " + password+ ", Tipo de Usuario= " + tipoUsuario;
+		return "Usuario [idUsuario=" + idUsuario + ", nombre=" + nombre + ", apellido=" + apellido + ", tipoUsuario="
+				+ tipoUsuario + "]";
 	}
 
 	public boolean equals(Usuario usuario){
@@ -66,6 +80,8 @@ public class Usuario {
 		return igual;
 
 	}
+	
+	
 	
 	
 }

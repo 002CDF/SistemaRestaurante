@@ -5,9 +5,11 @@
 <id column = "idUsuario" name = "idUsuario">
 <generator class = "identity"/>
 </id> 
-<property column = "nombreUsuario" name = "nombreUsuario" type = "string"/>
-<property column = "password" name = "password" type = "string"/>
+<property column = "nombre" name = "nombre" type = "string"/>
+<property column = "apellido" name = "apellido" type = "string"/>
 <many-to-one name = "tipoUsuario" class = "datos.TipoUsuario"
 column = "idTipoUsuario" not-null = "true"/>
+<many-to-one name = "login" class = "datos.Login"
+column = "idLogin" not-null = "true"/>
 </class>
 </hibernate-mapping>
