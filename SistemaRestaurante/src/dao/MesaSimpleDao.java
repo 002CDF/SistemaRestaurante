@@ -1,15 +1,11 @@
 package dao;
 import java.util.List;
-
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-import datos.Login;
-import datos.Mesa;
-import datos.Usuario;
-public class MesaDao {
+import datos.MesaSimple;
+public class MesaSimpleDao {
 	private static Session session;
 	private Transaction tx ;
 	private void iniciaOperacion() throws HibernateException {
@@ -21,7 +17,7 @@ public class MesaDao {
 		throw new HibernateException( "ERROR en la capa de acceso a datos" , he);
 	}
 
-	public int agregarMesa(Mesa objeto) {
+	public int agregarMesaSimple(MesaSimple objeto) {
 		int id = 0;
 		try {
 			iniciaOperacion();
@@ -36,7 +32,7 @@ public class MesaDao {
 		return id;
 	} 
 
-	public void actualizarMesa(Mesa objeto) throws HibernateException {
+	public void actualizarMesaSimple(MesaSimple objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
 			session.update(objeto);
@@ -48,7 +44,7 @@ public class MesaDao {
 			session .close();
 		}
 	}
-	public void eliminarMesa(Mesa objeto) throws HibernateException {
+	public void eliminarMesaSimple(MesaSimple objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
 			session .delete(objeto);
@@ -62,46 +58,23 @@ public class MesaDao {
 			session .close();
 		}
 	}
-	public Mesa traerMesa(long idMesa) throws HibernateException {
-		Mesa objeto = null ;
+	public MesaSimple traerMesaSimple(long nroMesa) throws HibernateException {
+		MesaSimple objeto = null ;
 		try {
 			iniciaOperacion();
-			objeto = (Mesa)session.get(Mesa.class , idMesa);
+			objeto = (MesaSimple)session.get(MesaSimple.class , nroMesa);
 		} finally {
 			session .close();
 		}
 		return objeto;
 	}
-	public Mesa traerMesa(int nroMesa) throws HibernateException {
-		Mesa objeto = null ;
-		try {
-			iniciaOperacion();
-			String hql = "from Mesa m where m.nroMesa='"+nroMesa+"'";
-			objeto = (Mesa) session.createQuery(hql).uniqueResult();
-		} finally {
-			session .close();
-		}
-		
-		return objeto;
-	}
+
 	@SuppressWarnings ( "unchecked" )
-	public List<Mesa> traerMesa() throws HibernateException {
-		List<Mesa> lista= null ;
+	public List<MesaSimple> traerMesaSimple() throws HibernateException {
+		List<MesaSimple> lista= null ;
 		try {
 			iniciaOperacion();
-			lista= session.createQuery("from Mesa m order by m.idMesa asc").list() ;
-		} finally {
-			session .close();
-		}
-		return lista;
-	}
-	
-	@SuppressWarnings ( "unchecked" )
-	public List<Mesa> traerMesasDisponibles() throws HibernateException {
-		List<Mesa> lista= null ;
-		try {
-			iniciaOperacion();
-			lista= session.createQuery("from Mesa m where estadoMesa=1 order by m.idMesa asc").list() ;
+			lista= session.createQuery("from MesaSimple m order by m.idMesa asc").list() ;
 		} finally {
 			session .close();
 		}

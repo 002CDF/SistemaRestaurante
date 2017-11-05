@@ -7,8 +7,8 @@ import datos.Salon;
 public class MesaABM {
 	private MesaDao dao = new MesaDao();
 
-	public int agregarMesa(EstadoMesa estadoMesa, Salon salon){
-		Mesa m = new Mesa (estadoMesa, salon);
+	public int agregarMesa(int estadoMesa, int nroMesa, Salon salon){
+		Mesa m = new Mesa (estadoMesa, nroMesa, salon);
 		return dao.agregarMesa(m);
 	}
 
@@ -24,7 +24,9 @@ public class MesaABM {
 	public Mesa traerMesa(long idMesa){
 		return dao.traerMesa(idMesa);
 	}
-
+	public Mesa traerMesa(int nroMesa){
+		return dao.traerMesa(nroMesa);
+	}
 	public List<Mesa> traerMesa(){
 		return dao.traerMesa();
 	}

@@ -5,15 +5,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
 public class Mesa {
-	public long idMesa;
-	public int estadoMesa;
-	public Salon salon;
+	private long idMesa;
+	private int estadoMesa;
+	private int nroMesa;
+	private Salon salon;
+	private Set<MesaSimple> mesaSimples;
 	
 	public Mesa(){}
 
-	public Mesa(int estadoMesa, Salon salon) { //Patron state va en el constructor?
-		super(); //Al ser una superclase, debe tener esto?
+	public Mesa(int estadoMesa, int nroMesa, Salon salon) {
+		super();
 		this.estadoMesa = estadoMesa;
+		this.nroMesa = nroMesa;
 		this.salon = salon;
 	}
 
@@ -21,7 +24,7 @@ public class Mesa {
 		return idMesa;
 	}
 
-	public void setIdMesa(long idMesa) {
+	protected void setIdMesa(long idMesa) {
 		this.idMesa = idMesa;
 	}
 
@@ -33,6 +36,14 @@ public class Mesa {
 		this.estadoMesa = estadoMesa;
 	}
 
+	public long getNroMesa() {
+		return nroMesa;
+	}
+
+	public void setNroMesa(int nroMesa) {
+		this.nroMesa = nroMesa;
+	}
+
 	public Salon getSalon() {
 		return salon;
 	}
@@ -41,11 +52,24 @@ public class Mesa {
 		this.salon = salon;
 	}
 
+	public Set<MesaSimple> getMesaSimples() {
+		return mesaSimples;
+	}
+
+	public void setMesaSimples(Set<MesaSimple> mesaSimples) {
+		this.mesaSimples = mesaSimples;
+	}
+
 	@Override
 	public String toString() {
 		return "Mesa [idMesa=" + idMesa + ", estadoMesa=" + estadoMesa
-				+ ", salon=" + salon + "]";
+				+ ", nroMesa=" + nroMesa + ", salon=" + salon + "]";
 	}
+
 	
 	
+	
+
 }
+
+	

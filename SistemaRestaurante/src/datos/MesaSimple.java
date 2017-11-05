@@ -6,23 +6,22 @@ import java.util.List;
 import java.util.ArrayList;
 import datos.Mesa;
 public class MesaSimple extends Mesa{
-	private Mesa mesa;
+	private long idMesaSimple;
 	private long capacidad;
 	
 	public MesaSimple(){}
 
-	public MesaSimple(Mesa mesa, long capacidad) {
+	public MesaSimple(long capacidad) {
 		super();
-		this.mesa = mesa;
 		this.capacidad = capacidad;
 	}
 
-	public Mesa getMesa() {
-		return mesa;
+	public long getIdMesaSimple() {
+		return idMesaSimple;
 	}
 
-	public void setMesa(Mesa mesa) {
-		this.mesa = mesa;
+	protected void setIdMesaSimple(long idMesaSimple) {
+		this.idMesaSimple = idMesaSimple;
 	}
 
 	public long getCapacidad() {
@@ -35,8 +34,11 @@ public class MesaSimple extends Mesa{
 
 	@Override
 	public String toString() {
-		return "MesaSimple [mesa=" + mesa + ", capacidad=" + capacidad + "]";
+		return "MesaSimple [idMesaSimple=" + idMesaSimple + ", capacidad="
+				+ capacidad + "]";
 	}
+
+	
 
 	
 	

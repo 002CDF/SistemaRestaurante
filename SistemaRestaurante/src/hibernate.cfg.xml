@@ -21,7 +21,6 @@
 <mapping resource="mapeos/ItemComanda.hbm.xml"/>
 <mapping resource="mapeos/Mesa.hbm.xml"/>
 <mapping resource="mapeos/MesaSimple.hbm.xml"/>
-<mapping resource="mapeos/MesaCompuesta.hbm.xml"/>
 <mapping resource="mapeos/Salon.hbm.xml"/>
 <mapping resource="mapeos/Camarero.hbm.xml"/>
 <mapping resource="mapeos/Comanda.hbm.xml"/>

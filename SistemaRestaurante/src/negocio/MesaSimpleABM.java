@@ -1,4 +1,6 @@
 package negocio;
+import datos.Mesa;
+import datos.MesaSimple;
 import dao.MesaSimpleDao;
 
 import java.util.List;
@@ -9,8 +11,8 @@ import datos.Salon;
 public class MesaSimpleABM {
 	private MesaSimpleDao dao = new MesaSimpleDao();
 
-	public int agregarMesaSimple(EstadoMesa estadoMesa, Salon salon, long idMesaSimple, int capacidad){
-		MesaSimple m = new MesaSimple (estadoMesa, salon, idMesaSimple, capacidad);
+	public int agregarMesaSimple(long capacidad){
+		MesaSimple m = new MesaSimple (capacidad);
 		return dao.agregarMesaSimple(m);
 	}
 
@@ -29,10 +31,6 @@ public class MesaSimpleABM {
 
 	public List<MesaSimple> traerMesaSimple(){
 		return dao.traerMesaSimple();
-	}
-
-	public MesaSimple traerMesaSimpleCompleto (long idMesaSimple){
-		return dao.traerMesaSimpleCompleto(idMesaSimple);
 	}
 
 }

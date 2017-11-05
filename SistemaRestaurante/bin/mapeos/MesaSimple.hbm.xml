@@ -4,7 +4,7 @@
 <class name = "datos.MesaSimple" table = "mesaSimple">
 <id column = "idMesaSimple" name = "idMesaSimple">
 <generator class = "identity"/>
-</id> 
+</id>
 <property column = "capacidad" name = "capacidad" type = "long"/>
 </class>
 </hibernate-mapping>

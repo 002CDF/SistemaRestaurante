@@ -5,7 +5,14 @@
 <id column = "idMesa" name = "idMesa">
 <generator class = "identity"/>
 </id> 
+<property column = "estadoMesa" name = "estadoMesa" type = "int"/>
+<property column = "nroMesa" name = "nroMesa" type = "int"/>
 <many-to-one name = "salon" class = "datos.Salon"
 column = "idSalon" not-null = "true"/>
+<set name="mesaSimples" table="mesaSimple" order-by="idMesaSimple asc"
+	inverse="true" lazy="true" fetch="select">
+	<key column="idMesa" not-null="true" />
+	<one-to-many class="datos.MesaSimple" />
+</set>
 </class>
 </hibernate-mapping>
