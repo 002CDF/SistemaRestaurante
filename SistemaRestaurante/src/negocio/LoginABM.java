@@ -1,6 +1,7 @@
 package negocio;
 import java.util.GregorianCalendar;
 import java.util.List;
+
 import dao.LoginDao;
 import datos.Login;
 import datos.Usuario;
@@ -26,6 +27,9 @@ public class LoginABM {
     	Login c= dao.traerLogin(idLogin);
         return c;
     }
+	public Login traerLogin(String nombreUsuario, String password){
+		return dao.traerLogin(nombreUsuario, password);
+	}
     public List<Login> traerLogin(){
     	return dao.traerLogin();
     	}

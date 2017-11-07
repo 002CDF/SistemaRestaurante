@@ -1,9 +1,12 @@
 package dao;
 import java.util.List;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import datos.Mesa;
 import datos.MesaSimple;
 public class MesaSimpleDao {
 	private static Session session;
@@ -58,11 +61,11 @@ public class MesaSimpleDao {
 			session .close();
 		}
 	}
-	public MesaSimple traerMesaSimple(long nroMesa) throws HibernateException {
+	public MesaSimple traerMesaSimple(long idMesaSimple) throws HibernateException {
 		MesaSimple objeto = null ;
 		try {
 			iniciaOperacion();
-			objeto = (MesaSimple)session.get(MesaSimple.class , nroMesa);
+			objeto = (MesaSimple)session.get(MesaSimple.class , idMesaSimple);
 		} finally {
 			session .close();
 		}

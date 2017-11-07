@@ -4,12 +4,17 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
+import datos.Usuario;
+import state.EstadoMesa;
+import state.Disponible;
+
 public class Mesa {
 	private long idMesa;
 	private int estadoMesa;
 	private int nroMesa;
 	private Salon salon;
 	private Set<MesaSimple> mesaSimples;
+	private EstadoMesa estado;
 	
 	public Mesa(){}
 
@@ -18,6 +23,7 @@ public class Mesa {
 		this.estadoMesa = estadoMesa;
 		this.nroMesa = nroMesa;
 		this.salon = salon;
+		this.estado = new Disponible();
 	}
 
 	public long getIdMesa() {
@@ -36,7 +42,7 @@ public class Mesa {
 		this.estadoMesa = estadoMesa;
 	}
 
-	public long getNroMesa() {
+	public int getNroMesa() {
 		return nroMesa;
 	}
 
@@ -59,7 +65,25 @@ public class Mesa {
 	public void setMesaSimples(Set<MesaSimple> mesaSimples) {
 		this.mesaSimples = mesaSimples;
 	}
+	
+	public EstadoMesa getEstado(){
+		return estado;
+	}
+	public void setEstado(EstadoMesa estado ){
+		this.estado = estado;
+	}
 
+	//Métodos state:
+	public void liberarMesa(){
+		this.setEstado(this.getEstado().dejarDisponible());
+	}
+	public void ocuparMesa(Usuario usuario){
+		this.setEstado(this.getEstado().ocupar(usuario));
+	}
+	public void finalizarMesa(){
+		this.setEstado( this.getEstado().finalizar());
+	}
+	
 	@Override
 	public String toString() {
 		return "Mesa [idMesa=" + idMesa + ", estadoMesa=" + estadoMesa

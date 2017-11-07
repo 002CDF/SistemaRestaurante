@@ -8,10 +8,5 @@
 		</id>
 		<property name="nombreUsuario" type="string" column="nombreUsuario" />
 		<property name="password" type="string" column="password" />
-		<set name="usuario" table="usuario" order-by="idUsuario asc"
-			inverse="true" lazy="true" fetch="select">
-			<key column="idLogin" not-null="true" />
-			<one-to-many class="datos.Usuario" />
-		</set>
 	</class>
 </hibernate-mapping>

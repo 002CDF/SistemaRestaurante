@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import datos.Login;
+import datos.Usuario;
 
 
 public class LoginDao {	
@@ -73,7 +74,18 @@ private static Session session ;
 		}
 		return objeto;
 	}
-	
+	public Login traerLogin(String nombreUsuario, String password) throws HibernateException {
+		Login objeto = null ;
+		try {
+			iniciaOperacion();
+			String hql = "from Login l where l.nombreUsuario='"+nombreUsuario+"' and l.password='"+password+"'";
+			objeto = (Login)session.createQuery(hql).uniqueResult();
+		} finally {
+			session .close();
+		}
+		
+		return objeto;
+	}
 	@SuppressWarnings ( "unchecked" )
 	public List<Login> traerLogin() throws HibernateException {
 		List<Login> lista= null ;

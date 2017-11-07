@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
 import datos.Mesa;
-public class MesaSimple extends Mesa{
+public class MesaSimple{
 	private long idMesaSimple;
 	private long capacidad;
 	

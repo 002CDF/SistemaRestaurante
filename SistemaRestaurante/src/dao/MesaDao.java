@@ -76,12 +76,11 @@ public class MesaDao {
 		Mesa objeto = null ;
 		try {
 			iniciaOperacion();
-			String hql = "from Mesa m where m.nroMesa='"+nroMesa+"'";
+			String hql = "from Mesa m inner join fetch m.salon where m.nroMesa='"+nroMesa+"'";
 			objeto = (Mesa) session.createQuery(hql).uniqueResult();
 		} finally {
 			session .close();
 		}
-		
 		return objeto;
 	}
 	@SuppressWarnings ( "unchecked" )
@@ -89,7 +88,7 @@ public class MesaDao {
 		List<Mesa> lista= null ;
 		try {
 			iniciaOperacion();
-			lista= session.createQuery("from Mesa m order by m.idMesa asc").list() ;
+			lista= session.createQuery("from Mesa m order by m.nroMesa asc").list() ;
 		} finally {
 			session .close();
 		}

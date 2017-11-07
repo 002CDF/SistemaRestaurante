@@ -1,15 +1,14 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-<class name = "datos.Usuario" table = "usuario">
-<id column = "idUsuario" name = "idUsuario">
-<generator class = "identity"/>
-</id> 
-<property column = "nombre" name = "nombre" type = "string"/>
-<property column = "apellido" name = "apellido" type = "string"/>
-<many-to-one name = "tipoUsuario" class = "datos.TipoUsuario"
-column = "idTipoUsuario" not-null = "true"/>
-<many-to-one name = "login" class = "datos.Login"
-column = "idLogin" not-null = "true"/>
-</class>
+	<class name="datos.Usuario" table="usuario">
+		<id column="idUsuario" name="idUsuario">
+			<generator class="identity" />
+		</id>
+		<property column="nombre" name="nombre" type="string" />
+		<property column="apellido" name="apellido" type="string" />
+		<many-to-one name="tipoUsuario" class="datos.TipoUsuario"
+			column="idTipoUsuario" not-null="true" />
+		<one-to-one name="login" class="datos.Login"></one-to-one>
+	</class>
 </hibernate-mapping>

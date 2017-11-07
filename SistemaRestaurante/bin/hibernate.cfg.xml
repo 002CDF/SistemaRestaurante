@@ -9,12 +9,14 @@
 <property name="connection.pool_size">1</property>
 <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 <property name="show_sql">true</property> <!-- en true muestra hql en consola-->
+<property name="hibernate.hbm2ddl.auto">update</property>
 <!--Mapeo Entidades -->
 <mapping resource="mapeos/Conversion.hbm.xml"/>
 <mapping resource="mapeos/Menu.hbm.xml"/>
 <mapping resource="mapeos/Privilegio.hbm.xml"/>
 <mapping resource="mapeos/TipoUsuario.hbm.xml"/>
 <mapping resource="mapeos/Usuario.hbm.xml"/>
+<mapping resource="mapeos/Login.hbm.xml"/>
 <mapping resource="mapeos/ItemTicket.hbm.xml"/>
 <mapping resource="mapeos/Ticket.hbm.xml"/>
 <mapping resource="mapeos/ItemListaPrecio.hbm.xml"/>
@@ -35,6 +37,5 @@
 <mapping resource="mapeos/Ingrediente.hbm.xml"/>
 <mapping resource="mapeos/Stock.hbm.xml"/>
 <mapping resource="mapeos/Producto.hbm.xml"/>
-<mapping resource="mapeos/Login.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

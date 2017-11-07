@@ -3,7 +3,7 @@
 xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version = "3.1">
-<display-name> SistemaHotelero </display-name>
+<display-name> Sistema Restaurante </display-name>
 <welcome-file-list>
 <welcome-file> index.html </welcome-file>
 <welcome-file> index.htm </welcome-file>
@@ -29,5 +29,21 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version = "3.
 <servlet-mapping>
 <servlet-name> ControladorLogout </servlet-name>
 <url-pattern> /Logout </url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name> ControladorLayout </servlet-name>
+<servlet-class> controladores.ControladorLayout </servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name> ControladorLayout </servlet-name>
+<url-pattern>/Mesas</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name> ControladorMesa </servlet-name>
+<servlet-class> controladores.ControladorMesa </servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name> ControladorMesa </servlet-name>
+<url-pattern>/DetalleMesa</url-pattern>
 </servlet-mapping>
 </web-app>
