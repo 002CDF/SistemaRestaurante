@@ -12,7 +12,7 @@ pageEncoding = "ISO-8859-1" %>
 <%@ include file = "/cabecera.jsp" %>
 <% Usuario usuario=(Usuario)request.getAttribute("usuario"); %>
 <BR>
-Se ha logueado correctamente como <%= usuario.getNombreUsuario() %> <BR>
+Se ha logueado correctamente como <%= usuario.getLogin().getNombreUsuario() %> <BR>
 <BR>
 <A href = "/SistemaRestaurante/index.jsp"> Volver... </A>
 </BODY>

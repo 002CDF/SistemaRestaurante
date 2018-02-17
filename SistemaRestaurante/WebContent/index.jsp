@@ -3,8 +3,8 @@
 <! DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd" >
 <%@page import="datos.Usuario" %>
-<%  Usuario usuario = (Usuario) session.getAttribute("usuario");
-	if(usuario == null){ 
+<%  String nombreUsuario = (String) session.getAttribute("nombreUsuario");
+	if(nombreUsuario == null){ 
 %>
 <HTML>
 <HEAD>

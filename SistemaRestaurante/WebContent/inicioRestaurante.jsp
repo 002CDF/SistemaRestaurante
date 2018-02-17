@@ -31,7 +31,20 @@
 	</div>
 </nav>
 <!-- Barra de navegación -->
-<label></label>
+<br>
+<CENTER><strong><h2>¡Bienvenido al sistema restaurante!</h2></strong><br></p></CENTER>
+
+<h4> 
+Indicaciones para la navegación y uso del sistema:
+</h4>
+<br>   - En la sección "pedidos" se encuentran las mesas existentes con su respectivo estado.
+<br>   - Según el estado de las mismas se permitirán hacer las acciones correspondientes.
+<br>   - El color de las mesas en el layout es: Verde(libre), Rojo(ocupada), Azul(terminada).
+<br>   - En el caso de encontrarse ocupada se habilitará la creación de comandas para dicha mesa.
+<br>   - Al cerrarse la mesa se emitirá automáticamente el ticket con los gastos de los comensales.
+
+<br><br><br>
+<strong> Buena estadía! :)</strong>
 </body>
 </html>
 <% }

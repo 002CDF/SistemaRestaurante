@@ -23,3 +23,6 @@ Duda para consultar en grupo:
 2- En caso de no usar la formula se puede usar capacidad 2 para cada mesa?
 2- Vamos a congelar el diseño en el tema de producto(plato)-receta-ingrediente?
 3- El atributo estadoMesa va a quedar en mesa en el DER?
+
+~16/02
+1- Numero de habitación es del cliente?

@@ -15,10 +15,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sistema Restaurante - Detalle de mesa </title>
 </head>
+
+
 <!-- Scripts -->
 <script src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src='js/bootstrap.min.js'></script>
 <link rel="stylesheet" href="css/bootstrap.css" />
+
+<script>
+function ejecutarAccion(form){
+	if(($("#accionMesa").val())==="ocupar"){
+		document.getElementById("divOcupar").style.display = "inline";
+	}
+}
+</script>
+
+
 <body>
 <!-- Barra de navegación -->
 <nav class="navbar navbar-inverse" style="background-color: black;">
@@ -46,10 +58,11 @@
 <label><strong>En salon: </strong></label> <%=""+mesa.getSalon().getDescripcion()%>
 
 <div class="form-group" class="col-xs-3">
-  <label for="accionMesa"><strong>Seleccione una accion:</strong></label>
+  <label for="accionMesa"><strong>Seleccione una acción:</strong></label>
   <select class="form-control-sm" id="accionMesa" onchange="ejecutarAccion(this.form)">
   	<option value="" selected disabled>Seleccionar</option>
-    <%if(mesa.getEstadoMesa() == 1) out.print("<option value='ocupar'>Ocupar mesa</option>");%>
+    <%if(mesa.getEstadoMesa() == 1) out.print("<option value='ocupar'>Ocupar mesa</option>");
+       								out.print("<option value='mover'>Mover mesa</option>");%>
     <%if(mesa.getEstadoMesa() == 2) out.print("<option value='finalizar'>Finalizar mesa</option>");%>
     <%if(mesa.getEstadoMesa() == 3) out.print("<option value='liberar'>Liberar mesa</option>");%>
     <%if(mesa.getEstadoMesa() == 2) out.print("<option value='verComanda'>Ver comandas</option>");%>
@@ -57,18 +70,15 @@
   </select>
 </div>
 
-<div id="divOcupar" class="form-inline col-lg-2">
-    <p><label for="camareroDNI"><strong>DNI del camarero</strong></label>
-    <input type="text" class="form-control input-sm" id="camareroDNI"></p>
-    <p><label for="clienteDNI"><strong>DNI del cliente</strong></label>
-    <input type="text" class="form-control input-sm" id="clienteDNI"></p>
-    <p><label for="numHabitacion"><strong>Numero de habitacion</strong></label>
-    <input type="text" class="form-control input-sm" id="numHabitacion"></p>
-</div>
-
-
-<div id="ocuparMesa" style="display: none">
-
+<div id="divOcupar" class="form-inline col-lg-2" style="display: none">
+	<form method="POST" action="/SistemaRestaurante/DetalleMesa">
+   	 	<p><strong>DNI del camarero</strong><br>
+    	<input type="text" class="form-control input-sm" id="camareroDNI"></p>
+    	<p><strong>DNI del cliente</strong><br>
+    	<input type="text" class="form-control input-sm" id="clienteDNI"></p>
+    	<input type="hidden" value="-1">
+    	<input type="submit" value="Enviar">
+    </form>
 </div>
 
 </body>
