@@ -1,0 +1,4 @@
+INSERT INTO `sistemarestaurante`.`conversion` (`idConversion`, `unidad`) VALUES ('1', 'Kg');
+INSERT INTO `sistemarestaurante`.`conversion` (`idConversion`, `unidad`) VALUES ('2', 'Gr');
+INSERT INTO `sistemarestaurante`.`conversion` (`idConversion`, `unidad`) VALUES ('3', 'L');
+INSERT INTO `sistemarestaurante`.`conversion` (`idConversion`, `unidad`) VALUES ('4', 'Ml');
