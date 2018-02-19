@@ -5,9 +5,9 @@ pageEncoding = "ISO-8859-1" %>
 <TABLE border = "0" width = "100%">
 <TR>
 <TD align = "left">
-<IMG src = "/SistemaRestaurante/images/LogoUnla.jpg">
+<IMG src="images/LogoUnla.jpg">
 </TD>
-<TD align = "center">
+<TD align = "left">
 <H1> Sistema Restaurante </H1>
 </TD>
 </TR>

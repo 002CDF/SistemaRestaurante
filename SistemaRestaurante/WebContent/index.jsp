@@ -16,7 +16,7 @@
 <BODY>
 	<%@ include file="/cabecera.jsp"%>
 	<FORM method="POST" action="/SistemaRestaurante/Inicio ">
-		<p><h4> Iniciar sesion: </h4> <br/><br/></p>
+		<p><h4> Iniciar sesion: </h4><br></p>
 			  <div class="col-lg-3">
 				<label>Nombre de usuario </label>
 				<input class="form-control input-sm" name="nombreUsuario" type="text">
