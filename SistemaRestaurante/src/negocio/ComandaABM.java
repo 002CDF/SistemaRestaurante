@@ -12,9 +12,8 @@ public class ComandaABM {
 	private ComandaDao dao = new ComandaDao();
 
 	public int agregarComanda(GregorianCalendar fecha, Mesa mesa, Cliente cliente,
-			Camarero camarero, long numHabitacion, boolean activo){
-		Comanda c = new Comanda (fecha, mesa, cliente, camarero,
-				numHabitacion, activo);
+			Camarero camarero, boolean activo){
+		Comanda c = new Comanda (fecha, mesa, cliente, camarero, activo);
 		return dao.agregarComanda(c);
 	}
 

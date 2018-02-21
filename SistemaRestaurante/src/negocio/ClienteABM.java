@@ -8,8 +8,8 @@ import datos.TipoCliente;
 public class ClienteABM {
 	private ClienteDao dao = new ClienteDao();
 
-	public int agregarCliente(long dni, String nombre, String apellido, TipoCliente tipoCliente){
-		Cliente c = new Cliente (dni, nombre, apellido, tipoCliente);
+	public int agregarCliente(long dni, String nombre, String apellido, TipoCliente tipoCliente, long numHabitacion){
+		Cliente c = new Cliente (dni, nombre, apellido, tipoCliente, numHabitacion);
 		return dao.agregarCliente(c);
 	}
 
