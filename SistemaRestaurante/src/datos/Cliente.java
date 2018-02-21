@@ -11,15 +11,17 @@ public class Cliente {
 	private String apellido;
 	private Set<Comanda> comandas; //ES NECESARIO?
 	private TipoCliente tipoCliente;
+	private long numHabitacion;
 	
 	public Cliente(){}
 
-	public Cliente(long dni, String nombre, String apellido, TipoCliente tipoCliente) {
+	public Cliente(long dni, String nombre, String apellido, TipoCliente tipoCliente, long numHabitacion) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.tipoCliente = tipoCliente;
+		this.numHabitacion	= numHabitacion;
 	}
 
 	public long getIdCliente() {
@@ -69,6 +71,14 @@ public class Cliente {
 	public void setTipoCliente(TipoCliente tipoCliente) {
 		this.tipoCliente = tipoCliente;
 	}
+	
+	public long getNumHabitacion() {
+		return numHabitacion;
+	}
+
+	public void setNumHabitacion(long numHabitacion) {
+		this.numHabitacion = numHabitacion;
+	}
 
 	public void agregarComanda(Comanda comanda)throws Exception{
 		List<Comanda> lista = new ArrayList(this.comandas);
@@ -84,7 +94,7 @@ public class Cliente {
 	public String toString() {
 		return "idCliente= " + idCliente+ ", Nombre= " + nombre
 				+ ", DNI= " + dni + ", Apellido= " + apellido
-				+ ", Lista Comandas= " + comandas;
+				+ ", Lista Comandas= " + comandas + ", Num Habitacion= "+ numHabitacion;
 	}
 
 	public boolean equals(Cliente cliente){

@@ -11,19 +11,17 @@ public class Comanda {
 	private Cliente cliente;
 	private Set<ItemComanda> itemComandas;
 	private Camarero camarero;
-	private long numHabitacion;
 	private boolean activo;
 	
 	public Comanda(){}
 
 	public Comanda(GregorianCalendar fecha, Mesa mesa, Cliente cliente,
-			Camarero camarero, long numHabitacion, boolean activo) {
+			Camarero camarero, boolean activo) {
 		super();
 		this.fecha = fecha;
 		this.mesa = mesa;
 		this.cliente = cliente;
 		this.camarero = camarero;
-		this.numHabitacion = numHabitacion;
 		this.activo = activo;
 	}
 
@@ -75,14 +73,6 @@ public class Comanda {
 		this.camarero = camarero;
 	}
 
-	public long getNumHabitacion() {
-		return numHabitacion;
-	}
-
-	public void setNumHabitacion(long numHabitacion) {
-		this.numHabitacion = numHabitacion;
-	}
-
 	public boolean isActivo() {
 		return activo;
 	}
@@ -106,7 +96,7 @@ public class Comanda {
 		return "idComanda= " + idComanda+ ", Fecha= " + fecha
 				+ ", Mesa= " + mesa+ ", Cliente= " + cliente
 				+ ", Lista ItemComandas= " + itemComandas+ ", Camarero= " + camarero
-				+ "Numero de Habitacion" + numHabitacion + "esta activa=" + activo;
+			    + "esta activa=" + activo;
 	}
 
 	public boolean equals(Comanda comanda){
