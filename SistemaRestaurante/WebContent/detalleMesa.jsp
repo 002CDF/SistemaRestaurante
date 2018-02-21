@@ -23,13 +23,48 @@
 <link rel="stylesheet" href="css/bootstrap.css" />
 
 <script>
+$(document).ready(function(){
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            	$('#salon').append(this.responseText);
+            }
+        };
+        xmlhttp.open("GET","ajax_Salones.jsp?="+1,true);
+        xmlhttp.send();
+});
+</script>
+
+<script>
 function ejecutarAccion(form){
 	if(($("#accionMesa").val())==="ocupar"){
 		document.getElementById("divOcupar").style.display = "inline";
 	}
+	else document.getElementById("divOcupar").style.display = "none";
+	if(($("#accionMesa").val())==="mover"){
+		document.getElementById("divMover").style.display = "inline";
+	}
+	else document.getElementById("divMover").style.display = "none";
 }
 </script>
 
+<script>
+function validarCliente(){
+	var esCliente = $('#esCliente').is(':checked');
+	if(esCliente==false){
+		document.getElementById("clienteDNI").disabled = true;
+	}
+	if(esCliente==true){
+		document.getElementById("clienteDNI").disabled = false;
+	}
+}
+</script>
 
 <body>
 <!-- Barra de navegación -->
@@ -70,16 +105,30 @@ function ejecutarAccion(form){
   </select>
 </div>
 
+
 <div id="divOcupar" class="form-inline col-lg-2" style="display: none">
 	<form method="POST" action="/SistemaRestaurante/DetalleMesa">
    	 	<p><strong>DNI del camarero</strong><br>
     	<input type="text" class="form-control input-sm" id="camareroDNI"></p>
+    	<input type="checkbox" id="esCliente" checked="checked" onchange="validarCliente()"> Cliente (SI/NO)
     	<p><strong>DNI del cliente</strong><br>
     	<input type="text" class="form-control input-sm" id="clienteDNI"></p>
-    	<input type="hidden" value="-1">
+    	<input type="hidden" id="tipoAccion" value="-1"> <!-- Ocupar -->
     	<input type="submit" value="Enviar">
     </form>
 </div>
+
+<form method="POST" action="/SistemaRestaurante/DetalleMesa">
+	<div id="divMover" class="form-inline col-lg-2" style="display: none">
+		<input type="hidden" name="tipoAccion" id="tipoAccion" value="-2"> <!-- Mover -->
+		<input type="hidden" name="mesa" id="mesa" value="<%=mesa.getNroMesa()%>">
+		<p><strong>Seleccione un salon para mover su mesa: </strong>
+		<select class='form-control-sm' name='salon' id='salon'>
+		</select>
+		<br>
+		<input type="submit" value="Enviar">
+	</div>
+</form>
 
 </body>
 </html>

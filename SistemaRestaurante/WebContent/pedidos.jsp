@@ -37,7 +37,6 @@ $(document).ready(function(){
 });
 </script>
 
-
 <body>
 <!-- Barra de navegación -->
 <nav class="navbar navbar-inverse" style="background-color: black;">
@@ -54,6 +53,15 @@ $(document).ready(function(){
 	</div>
 </nav>
 <!-- Barra de navegación -->
+
+<!-- Alertas de errores -->
+<%if(session.getAttribute("errorSalon") != null){%>
+<div class="alert alert-danger">
+  <strong>Atención</strong> <%out.println(session.getAttribute("errorSalon"));%>
+</div>
+<%session.setAttribute("errorSalon", null); }%>
+<!-- Alertas de errores -->
+
 <br/><br/>
 
 <form action="/SistemaRestaurante/DetalleMesa" method="post">
@@ -62,6 +70,8 @@ $(document).ready(function(){
 
 </body>
 </html>
+
+
 <%} else{
 	response.sendRedirect("/SistemaRestaurante/");
 }
