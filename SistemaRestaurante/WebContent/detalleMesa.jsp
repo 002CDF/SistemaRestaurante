@@ -66,6 +66,9 @@ function validarCliente(){
 }
 </script>
 
+<script src="js/botonComandas.js"></script>
+
+
 <body>
 <!-- Barra de navegación -->
 <nav class="navbar navbar-inverse" style="background-color: black;">
@@ -114,7 +117,66 @@ function validarCliente(){
     	<p><strong>DNI del cliente</strong><br>
     	<input type="text" class="form-control input-sm" id="clienteDNI"></p>
     	<input type="hidden" id="tipoAccion" value="-1"> <!-- Ocupar -->
-    	<input type="submit" value="Enviar">
+   
+		<p class="boton-margen-inferior">
+		<input type="button" class="btn btn-default" id="addComanda" value="Agregar comanda" onclick="agregarComanda()">
+		<input type="button" class="btn btn-default" id="deleteComanda" value="Quitar" onclick="quitarComanda()"></p>
+										
+<!-- 		<p><input class="form-control input-lg" id="Comanda1" name="Comanda1" type="text" autocomplete="off"></p> -->
+<!-- 		<p><input class="form-control input-lg" id="Comanda2" name="Comanda2" type="text" autocomplete="off" style="display: none"></p> -->
+<!-- 		<p><input class="form-control input-lg" id="Comanda3" name="Comanda3" type="text" autocomplete="off" style="display: none"></p> -->
+<!-- 		<p><input class="form-control input-lg" id="Comanda4" name="Comanda4" type="text" autocomplete="off" style="display: none"></p> -->
+<!-- 		<p><input class="form-control input-lg" id="Comanda5" name="Comanda5" type="text" autocomplete="off" style="display: none"></p> -->
+    	
+    	
+    	<div class="btn-group" id="Comanda1" role="group">
+        <select class="form-control" name="Producto1" id="Producto1">
+        <option value="" selected disabled>Seleccionar producto</option>
+        </select>
+        <input class="form-control" size="3" id="Cantidad1" name="Cantidad1" type="text" placeholder="Cant." autocomplete="off">
+	    </div>
+	    
+	    <br>
+	    
+	    <div class="btn-group" id="Comanda2" role="group" style="display: none">
+        <select class="form-control" name="Producto2" id="Producto2">
+        <option value="" selected disabled>Seleccionar producto</option>
+        </select>
+        <input class="form-control" size="3" id="Cantidad2" name="Cantidad2" type="text" placeholder="Cant." autocomplete="off">
+        <br>
+	    </div>
+	    
+	    <div class="btn-group" id="Comanda3" role="group" style="display: none">
+        <select class="form-control" name="Producto3" id="Producto3">
+        <option value="" selected disabled>Seleccionar producto</option>
+        </select>
+        <input class="form-control" size="3" id="Cantidad3" name="Cantidad3" type="text" placeholder="Cant." autocomplete="off">
+        <br>
+	    </div>
+	    
+	    <div class="btn-group" id="Comanda4" role="group" style="display: none">
+        <select class="form-control" name="Producto4" id="Producto4">
+        <option value="" selected disabled>Seleccionar producto</option>
+        </select>
+        <input class="form-control" size="3" id="Cantidad4" name="Cantidad4" type="text" placeholder="Cant." autocomplete="off">
+        <br>
+	    </div>
+	    
+	    <div class="btn-group" id="Comanda5" role="group" style="display: none">
+        <select class="form-control" name="Producto5" id="Producto5">
+        <option value="" selected disabled>Seleccionar producto</option>
+        </select>
+        <input class="form-control" size="3" id="Cantidad5" name="Cantidad5" type="text" placeholder="Cant." autocomplete="off">
+        <br>
+	    </div>
+	    
+	    
+	    
+	    
+	    
+    	<br>
+    	
+    	<input type="submit" class="btn btn-primary" value="Enviar">
     </form>
 </div>
 
@@ -126,7 +188,7 @@ function validarCliente(){
 		<select class='form-control-sm' name='salon' id='salon'>
 		</select>
 		<br>
-		<input type="submit" value="Enviar">
+		<input type="submit" class="btn btn-primary" value="Enviar">
 	</div>
 </form>
 

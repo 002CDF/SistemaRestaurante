@@ -7,6 +7,7 @@
 	if(nombreUsuario == null){ 
 %>
 <HTML>
+<body background="images/FondoRestaurante.jpg" height="10%">
 <HEAD>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
@@ -23,9 +24,10 @@
 				<label>Contraseña </label>
 				<input class="form-control input-sm" name="password" type="password">
 				<br>
-				<input type="submit" value="Enviar">
+				<input type="submit" class="btn btn-primary" value="Enviar">
 			  </div>
 	</FORM>
+
 </BODY>
 </HTML>
 <% } 
