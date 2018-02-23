@@ -6,7 +6,6 @@
 <generator class = "identity"/>
 </id> 
 <property column= "fecha" name = "fecha" type = "calendar"/>
-<property column= "numHabitacion" name = "numHabitacion" type = "long"/>
 <property column= "activo" name = "activo" type = "boolean"/>
 <many-to-one name= "mesa" class = "datos.Mesa"
 column = "idMesa" not-null = "true"/>

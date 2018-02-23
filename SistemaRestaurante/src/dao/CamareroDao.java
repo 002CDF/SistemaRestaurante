@@ -1,10 +1,13 @@
 package dao;
 import java.util.List;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import datos.Camarero;
+import datos.Login;
 public class CamareroDao {
 	private static Session session;
 	private Transaction tx ;
@@ -63,6 +66,17 @@ public class CamareroDao {
 		try {
 			iniciaOperacion();
 			objeto = (Camarero)session.get(Camarero.class , idCamarero);
+		} finally {
+			session .close();
+		}
+		return objeto;
+	}
+	public Camarero traerCamareroDNI(long dniCamarero) throws HibernateException {
+		Camarero objeto = null ;
+		try {
+			iniciaOperacion();
+			String hql= "from Camarero c where c.dni="+dniCamarero;
+			objeto = (Camarero)session.createQuery(hql).uniqueResult();
 		} finally {
 			session .close();
 		}

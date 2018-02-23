@@ -22,7 +22,7 @@ public class Comanda {
 		this.mesa = mesa;
 		this.cliente = cliente;
 		this.camarero = camarero;
-		this.activo = activo;
+		this.activo = true;
 	}
 
 	public long getIdComanda() {

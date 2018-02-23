@@ -30,6 +30,9 @@ public class LoginABM {
 	public Login traerLogin(String nombreUsuario, String password){
 		return dao.traerLogin(nombreUsuario, password);
 	}
+	public Login traerLoginUser(String nombreUsuario){
+		return dao.traerLoginUser(nombreUsuario);
+	}
     public List<Login> traerLogin(){
     	return dao.traerLogin();
     	}

@@ -1,4 +1,5 @@
 package state;
+import datos.Comanda;
 import datos.Mesa;
 import datos.Usuario;
 public class Ocupada extends EstadoMesa{
@@ -12,7 +13,7 @@ public class Ocupada extends EstadoMesa{
 		return this;
 	}
 	@Override
-	public EstadoMesa ocupar(Usuario usuario) {
+	public EstadoMesa ocupar(Usuario usuario, Comanda comanda) {
 		try {
 			throw new Exception( "Error, esta mesa ya está ocupada" );
 		} catch (Exception e ) {

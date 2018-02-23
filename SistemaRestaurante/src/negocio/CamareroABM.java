@@ -24,6 +24,10 @@ public class CamareroABM {
 	public Camarero traerCamarero(long idCamarero){
 		return dao.traerCamarero(idCamarero);
 	}
+	
+	public Camarero traerCamareroDNI(long dniCamarero){
+		return dao.traerCamareroDNI(dniCamarero);
+	}
 
 	public List<Camarero> traerCamarero(){
 		return dao.traerCamarero();

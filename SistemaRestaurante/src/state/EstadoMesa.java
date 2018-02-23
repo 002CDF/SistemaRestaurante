@@ -1,10 +1,11 @@
 package state;
+import datos.Comanda;
 import datos.Mesa;
 import datos.Usuario;
 public abstract class EstadoMesa {
 	private Usuario usuario;
 	public abstract EstadoMesa dejarDisponible();
-	public abstract EstadoMesa ocupar(Usuario usuario);
+	public abstract EstadoMesa ocupar(Usuario usuario, Comanda comanda);
 	public abstract EstadoMesa finalizar();
 	
 	public Usuario getUsuario() {

@@ -26,6 +26,7 @@ public class ControladorLogin extends HttpServlet {
 			String password = request.getParameter("password");
 			LoginABM loginAbm = new LoginABM();
 			Login login = loginAbm.traerLogin(nombreUsuario, password);
+			session.setAttribute("idUsuario", login.getIdLogin());
 			session.setAttribute("nombreUsuario", login.getNombreUsuario());
 			request.getRequestDispatcher("/inicioRestaurante.jsp").forward(request, response);
 		}

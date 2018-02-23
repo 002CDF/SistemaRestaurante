@@ -1,49 +1,53 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
-<web-app xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version = "3.1">
-<display-name> Sistema Restaurante </display-name>
-<welcome-file-list>
-<welcome-file> index.html </welcome-file>
-<welcome-file> index.htm </welcome-file>
-<welcome-file> index.jsp </welcome-file>
-<welcome-file> default.html </welcome-file>
-<welcome-file> default.htm </welcome-file>
-<welcome-file> default.jsp </welcome-file>
-<welcome-file> usuario.html </welcome-file>
-</welcome-file-list>
-<!-- MAPEO DE SERVLETS -->
-<servlet>
-<servlet-name> ControladorLogin </servlet-name>
-<servlet-class> controladores.ControladorLogin </servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name> ControladorLogin </servlet-name>
-<url-pattern> /Inicio </url-pattern>
-</servlet-mapping>
-<servlet>
-<servlet-name> ControladorLogout </servlet-name>
-<servlet-class> controladores.ControladorLogout </servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name> ControladorLogout </servlet-name>
-<url-pattern> /Logout </url-pattern>
-</servlet-mapping>
-<servlet>
-<servlet-name> ControladorLayout </servlet-name>
-<servlet-class> controladores.ControladorLayout </servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name> ControladorLayout </servlet-name>
-<url-pattern>/Mesas</url-pattern>
-</servlet-mapping>
-<servlet>
-<servlet-name> ControladorMesa </servlet-name>
-<servlet-class> controladores.ControladorMesa </servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name> ControladorMesa </servlet-name>
-<url-pattern>/DetalleMesa</url-pattern>
-</servlet-mapping>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name> Sistema Restaurante </display-name>
+  <welcome-file-list>
+    <welcome-file> index.html </welcome-file>
+    <welcome-file> index.htm </welcome-file>
+    <welcome-file> index.jsp </welcome-file>
+    <welcome-file> default.html </welcome-file>
+    <welcome-file> default.htm </welcome-file>
+    <welcome-file> default.jsp </welcome-file>
+    <welcome-file> usuario.html </welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>ControladorLogin</servlet-name>
+    <servlet-class> controladores.ControladorLogin </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorLogin</servlet-name>
+    <url-pattern> /Inicio </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ControladorLogout</servlet-name>
+    <servlet-class> controladores.ControladorLogout </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorLogout</servlet-name>
+    <url-pattern> /Logout </url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ControladorLayout</servlet-name>
+    <servlet-class> controladores.ControladorLayout </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorLayout</servlet-name>
+    <url-pattern>/Mesas</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ControladorMesa</servlet-name>
+    <servlet-class> controladores.ControladorMesa </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorMesa</servlet-name>
+    <url-pattern>/DetalleMesa</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>ControladorComanda</servlet-name>
+    <servlet-class> controladores.ControladorMesa </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorComanda</servlet-name>
+    <url-pattern>/Comanda</url-pattern>
+  </servlet-mapping>
 </web-app>

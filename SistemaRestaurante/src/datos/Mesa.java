@@ -5,8 +5,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
 import datos.Usuario;
+import datos.Comanda;
 import state.EstadoMesa;
 import state.Disponible;
+import state.Ocupada;
+import state.Finalizada;
 
 public class Mesa {
 	private long idMesa;
@@ -75,10 +78,16 @@ public class Mesa {
 
 	//Métodos state:
 	public void liberarMesa(){
+		if(this.estadoMesa==1) this.estado = new Disponible();
+		if(this.estadoMesa==2) this.estado = new Ocupada();
+		if(this.estadoMesa==3) this.estado = new Finalizada();
 		this.setEstado(this.getEstado().dejarDisponible());
 	}
-	public void ocuparMesa(Usuario usuario){
-		this.setEstado(this.getEstado().ocupar(usuario));
+	public void ocuparMesa(Usuario usuario, Comanda comanda){
+		if(this.estadoMesa==1) this.estado = new Disponible();
+		if(this.estadoMesa==2) this.estado = new Ocupada();
+		if(this.estadoMesa==3) this.estado = new Finalizada();
+		this.setEstado(this.getEstado().ocupar(usuario, comanda));
 	}
 	public void finalizarMesa(){
 		this.setEstado( this.getEstado().finalizar());

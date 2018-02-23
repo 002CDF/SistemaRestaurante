@@ -86,6 +86,18 @@ private static Session session ;
 		
 		return objeto;
 	}
+	public Login traerLoginUser(String nombreUsuario) throws HibernateException {
+		Login objeto = null ;
+		try {
+			iniciaOperacion();
+			String hql = "from Login l where l.nombreUsuario='"+nombreUsuario+"'";
+			objeto = (Login)session.createQuery(hql).uniqueResult();
+		} finally {
+			session .close();
+		}
+		
+		return objeto;
+	}
 	@SuppressWarnings ( "unchecked" )
 	public List<Login> traerLogin() throws HibernateException {
 		List<Login> lista= null ;

@@ -15,5 +15,6 @@ column = "idTipoCliente" not-null = "true"/>
 	<key column="idCliente" not-null="true" />
 	<one-to-many class="datos.Comanda" />
 </set>
+<property column= "numHabitacion" name = "numHabitacion" type = "long"/>
 </class>
 </hibernate-mapping>

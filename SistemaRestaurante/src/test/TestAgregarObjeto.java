@@ -78,17 +78,17 @@ public class TestAgregarObjeto {
 		Camarero camarero = new Camarero(1111111, "Nombre", "Apellido");
 		Salon salon = new Salon("descripcion");
 		EstadoMesa estadoMesa = new EstadoMesa();
-		Mesa mesa = new Mesa(estadoMesa, salon);
+		//Mesa mesa = new Mesa(estadoMesa, salon);
 		Receta receta = new Receta("Nombre", "descripcion");
 		Conversion conversion = new Conversion("Kilo");
 		Rubro rubro = new Rubro("descripcion");
 		SubRubro subRubro = new SubRubro("descripcion");
-		Cliente cliente = new Cliente(1111111, "Nombre", "Apellido", tipoCliente);
-		Comanda comanda = new Comanda(new GregorianCalendar(), mesa, cliente, camarero, 1, true);
+		//Cliente cliente = new Cliente(1111111, "Nombre", "Apellido", tipoCliente);
+		//Comanda comanda = new Comanda(new GregorianCalendar(), mesa, cliente, camarero, 1, true);
 		Producto producto = new Producto("Nombre", "descripcion", receta, rubro, subRubro, true, "imagen");
 		ListaPrecio listaPrecio = new ListaPrecio(new GregorianCalendar(), tipoCliente);
 		Ingrediente ingrediente = new Ingrediente("Nombre", "descripcion", conversion, 20.00, 15.00);
-		Usuario usuario = new Usuario("NombreUsuario", "Password", tipoUsuario);
+		//Usuario usuario = new Usuario("NombreUsuario", "Password", tipoUsuario);
 		//Se envia cada constructo al ABM para ser creado y agregado a la BD
 		//camareroABM.agregarCamarero(111111111, "Nombre", "Apellido"); OK
 		//conversionABM.agregarConversion("Kilo"); OK

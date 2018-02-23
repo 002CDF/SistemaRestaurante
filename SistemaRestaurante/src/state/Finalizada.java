@@ -1,4 +1,5 @@
 package state;
+import datos.Comanda;
 import datos.Mesa;
 import datos.Usuario;
 public class Finalizada extends EstadoMesa{
@@ -8,7 +9,7 @@ public class Finalizada extends EstadoMesa{
 		return this;
 	}
 	@Override
-	public EstadoMesa ocupar(Usuario usuario) {
+	public EstadoMesa ocupar(Usuario usuario, Comanda comanda) {
 		try {
 			throw new Exception( "Error, la mesa se encuentra finalizada" );
 		} catch (Exception e) {
