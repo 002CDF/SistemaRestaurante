@@ -10,11 +10,6 @@
 <property column="apellido" name="apellido" type ="string"/>
 <many-to-one name="tipoCliente" class="datos.TipoCliente"
 column = "idTipoCliente" not-null = "true"/>
-<set name="comandas" table="comanda" order-by="idComanda asc"
-	inverse="true" lazy="true" fetch="select">
-	<key column="idCliente" not-null="true" />
-	<one-to-many class="datos.Comanda" />
-</set>
 <property column= "numHabitacion" name = "numHabitacion" type = "long"/>
 </class>
 </hibernate-mapping>

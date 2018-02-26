@@ -9,7 +9,6 @@ public class Camarero {
 	private long dni;
 	private String nombre;
 	private String apellido;
-	private Set<Comanda> comandas;
 	
 	public Camarero(){}
 
@@ -51,32 +50,21 @@ public class Camarero {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-
-	public Set<Comanda> getComandas() {
-		return comandas;
-	}
-
-	public void setComandas(Set<Comanda> comandas) {
-		this.comandas = comandas;
-	}
 	
-	
-	
-	public void agregarComanda(Comanda comanda)throws Exception{
-		List<Comanda> lista = new ArrayList(this.comandas);
-		for(int i=0;i<lista.size();i++){
-			if(lista.get(i).equals(comanda)){
-				throw new Exception("Error: El item que desea agregar ya existe");
-			}
-		}
-		comandas.add(comanda);
-	}
+//	public void agregarComanda(Comanda comanda)throws Exception{
+//		List<Comanda> lista = new ArrayList(this.comandas);
+//		for(int i=0;i<lista.size();i++){
+//			if(lista.get(i).equals(comanda)){
+//				throw new Exception("Error: El item que desea agregar ya existe");
+//			}
+//		}
+//		comandas.add(comanda);
+//	}
 
 	@Override
 	public String toString() {
 		return "id del camarero= " + idCamarero+ ", DNI= " + dni
-				+ ", Nombre= " + nombre+ ", Apellido= " + apellido
-				+ ", Lista Comandas= " + comandas;
+				+ ", Nombre= " + nombre+ ", Apellido= " + apellido;
 	}
 
 	public boolean equals(Camarero camarero){

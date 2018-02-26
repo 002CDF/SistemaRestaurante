@@ -24,6 +24,10 @@ public class ItemComandaABM {
 	public ItemComanda traerItemComanda(long idItemComanda){
 		return dao.traerItemComanda(idItemComanda);
 	}
+	
+	public List<ItemComanda> traerItemComandas(Comanda comanda){
+		return dao.traerItemComandas(comanda.getIdComanda());
+	}
 
 	public List<ItemComanda> traerItemComanda(){
 		return dao.traerItemComanda();

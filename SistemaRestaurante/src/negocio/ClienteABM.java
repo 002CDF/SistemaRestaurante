@@ -25,6 +25,9 @@ public class ClienteABM {
 	public Cliente traerCliente(long idCliente){
 		return dao.traerCliente(idCliente);
 	}
+	public Cliente traerClienteDNI(long dniCliente){
+		return dao.traerClienteDNI(dniCliente);
+	}
 
 	public List<Cliente> traerCliente(){
 		return dao.traerCliente();

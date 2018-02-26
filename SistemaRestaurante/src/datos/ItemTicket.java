@@ -60,15 +60,19 @@ public class ItemTicket {
 		this.cantidad = cantidad;
 	}
 	
+	public double calcularSubTotal(){
+		return this.precioUnitario*this.cantidad;
+	}
+	
 	@Override
 	public String toString() {
 		return "idItemTicket= " + idItemTicket + ", Producto= " + producto
 				+ ", Precio Unitario= " + precioUnitario + ", Cantidad= " + cantidad;
 	}
 
-	public boolean equals(ItemTicket itemTicket){
+	public boolean equals(ItemTicket itemTicket){ //Comparando por producto para sumarlo
 		boolean igual =false;
-		if (this.getIdItemTicket()==itemTicket.getIdItemTicket()){
+		if (this.getProducto().getIdProducto()==itemTicket.getProducto().getIdProducto()){
 			igual=true;
 		}
 		return igual;

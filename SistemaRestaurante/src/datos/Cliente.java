@@ -9,7 +9,6 @@ public class Cliente {
 	private long dni;
 	private String nombre;
 	private String apellido;
-	private Set<Comanda> comandas; //ES NECESARIO?
 	private TipoCliente tipoCliente;
 	private long numHabitacion;
 	
@@ -55,14 +54,6 @@ public class Cliente {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-
-	public Set<Comanda> getComandas() {
-		return comandas;
-	}
-
-	public void setComandas(Set<Comanda> comandas) {
-		this.comandas = comandas;
-	}
 	
 	public TipoCliente getTipoCliente() {
 		return tipoCliente;
@@ -80,21 +71,11 @@ public class Cliente {
 		this.numHabitacion = numHabitacion;
 	}
 
-	public void agregarComanda(Comanda comanda)throws Exception{
-		List<Comanda> lista = new ArrayList(this.comandas);
-		for(int i=0;i<lista.size();i++){
-			if(lista.get(i).equals(comanda)){
-				throw new Exception("Error: El item que desea agregar ya existe");
-			}
-		}
-		comandas.add(comanda);
-	}
-
 	@Override
 	public String toString() {
 		return "idCliente= " + idCliente+ ", Nombre= " + nombre
 				+ ", DNI= " + dni + ", Apellido= " + apellido
-				+ ", Lista Comandas= " + comandas + ", Num Habitacion= "+ numHabitacion;
+				+ ", Num Habitacion= "+ numHabitacion;
 	}
 
 	public boolean equals(Cliente cliente){

@@ -68,6 +68,18 @@ public class ListaPrecioDao {
 		}
 		return objeto;
 	}
+	public ListaPrecio traerUltimaListaPrecio(long idTipoCliente) throws HibernateException {
+		ListaPrecio objeto = null ;
+		try {
+			iniciaOperacion();
+			String hql= "from ListaPrecio l where l.fecha in(select MAX(l.fecha) from ListaPrecio l where idTipoCliente="+idTipoCliente+")";
+			objeto=(ListaPrecio)session.createQuery(hql).uniqueResult();
+			Hibernate.initialize(objeto.getPrecios());
+		} finally {
+			session .close();
+		}
+		return objeto;
+	}
 	@SuppressWarnings ( "unchecked" )
 	public List<ListaPrecio> traerListaPrecio() throws HibernateException {
 		List<ListaPrecio> lista= null ;

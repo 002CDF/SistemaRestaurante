@@ -1,9 +1,11 @@
 package dao;
 import java.util.List;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import datos.TipoCliente;
 public class TipoClienteDao {
 	private static Session session;
@@ -78,6 +80,19 @@ public class TipoClienteDao {
 			session .close();
 		}
 		return lista;
+	}
+	public TipoCliente traerTipoClienteNombre(String tipoCliente) throws HibernateException { //completo
+		TipoCliente objeto = null ;
+		try {
+			iniciaOperacion();
+			String hql= "from TipoCliente t where t.tipo like '"+tipoCliente+"'";
+			objeto=(TipoCliente)session.createQuery(hql).uniqueResult();
+			//Hibernate.initialize(objeto.getListaPrecios());
+		}
+		finally {
+			session .close();
+		}
+		return objeto;
 	}
 	public TipoCliente traerTipoClienteCompleto(long idTipoCliente) throws HibernateException {
 		TipoCliente objeto = null ;

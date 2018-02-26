@@ -19,10 +19,12 @@ import datos.Cliente;
 import datos.Comanda;
 import datos.ItemComanda;
 import datos.Login;
+import datos.Ticket;
 import datos.Usuario;
 import negocio.CamareroABM;
 import negocio.ClienteABM;
 import negocio.ComandaABM;
+import negocio.ItemComandaABM;
 import negocio.LoginABM;
 import negocio.UsuarioABM;
 import datos.Mesa;
@@ -79,22 +81,9 @@ public class ControladorMesa extends HttpServlet {
 				Producto producto = new Producto();
 				ProductoABM productoAbm = new ProductoABM();
 				Comanda comanda = new Comanda();
-				Cliente cliente = new Cliente();
-				ClienteABM clienteAbm = new ClienteABM();
-				Camarero camarero = new Camarero();
-				CamareroABM camareroAbm = new CamareroABM();
 				ItemComanda itemComanda = null;
 				Set<ItemComanda> itemComandas = new HashSet<ItemComanda>();
 				comanda.setFecha(new GregorianCalendar());
-				//Trayendo cliente (si existe)
-				if(request.getParameter("clienteDNI") != null){
-					cliente = clienteAbm.traerCliente(Integer.parseInt(request.getParameter("clienteDNI")));
-					comanda.setCliente(cliente);
-				}
-				//Trayendo camarero
-				long dniCamarero = new Long(Integer.parseInt(request.getParameter("camareroDNI")));
-				camarero = camareroAbm.traerCamareroDNI(dniCamarero);
-				comanda.setCamarero(camarero);
 				//Trayendo mesa
 				mesa = mesaAbm.traerMesa(Integer.parseInt(request.getParameter("mesa")));
 				comanda.setMesa(mesa);
@@ -114,14 +103,14 @@ public class ControladorMesa extends HttpServlet {
 						itemComanda = null;
 					}
 				}
-				comanda.setItemComandas(itemComandas);
+				comanda.setItemComandas(itemComandas); //Cargo la lista de ítems en comanda
 				//Preparandose para insertar en la bd y cambiar estado:
 				UsuarioABM usuarioAbm = new UsuarioABM();
 				String stringUser = session.getAttribute("idUsuario").toString();
 				long idUsuario = Integer.parseInt(stringUser);
 				Usuario usuario = usuarioAbm.traerUsuario(idUsuario);
 				mesa.ocuparMesa(usuario, comanda);
-				mesa.setEstadoMesa(2);
+				//mesa.setEstadoMesa(2);
 				mesaAbm.modificarMesa(mesa);
 				request.getRequestDispatcher("/pedidos.jsp").forward(request, response);
 			}
@@ -130,9 +119,100 @@ public class ControladorMesa extends HttpServlet {
 				response .sendError(500, "Error al ocupar la mesa" );
 			}
 		}
+		//Agregar Comanda
+		else if(request.getParameter("tipoAccion") != null && request.getParameter("tipoAccion").equalsIgnoreCase("-3")){
+			try{
+				Producto producto = new Producto();
+				ProductoABM productoAbm = new ProductoABM();
+				Comanda comanda = new Comanda();
+				ComandaABM comandaAbm = new ComandaABM();
+				ItemComanda itemComanda = null;
+				Set<ItemComanda> itemComandas = new HashSet<ItemComanda>();
+				comanda.setFecha(new GregorianCalendar());
+				//Trayendo mesa
+				mesa = mesaAbm.traerMesa(Integer.parseInt(request.getParameter("mesa")));
+				comanda.setMesa(mesa);
+				//Chequeando los pedidos de los comensales
+				long idProducto;
+				long cantidad;
+				for(int i=1 ; i<6 ; i++){ //Recorriendo los selects para ver cuantos itemComanda hay
+					if((request.getParameter("Producto_"+i) != null) && (!request.getParameter("Producto_"+i).equalsIgnoreCase("-1"))){
+						idProducto = Integer.parseInt(request.getParameter("Producto_"+i));
+						producto = productoAbm.traerProducto(idProducto);
+						cantidad = Integer.parseInt(request.getParameter("Cantidad_"+i));
+						itemComanda = new ItemComanda();
+						itemComanda.setComanda(comanda);
+						itemComanda.setProducto(producto);
+						itemComanda.setCantidad(cantidad);
+						itemComandas.add(itemComanda);
+						itemComanda = null;
+					}
+				}
+				comanda.setItemComandas(itemComandas);
+				//Preparandose para insertar en la bd y cambiar estado:
+				ItemComandaABM itemComandaAbm = new ItemComandaABM();
+				long idComandaAgregado = comandaAbm.agregarComanda(comanda.getFecha(), comanda.getMesa(), comanda.isActivo()); //activo en true
+				comanda.setIdComanda(idComandaAgregado);
+				for (ItemComanda itemComandaAgr : comanda.getItemComandas()) { //Recorriendo el HashSet
+					itemComandaAbm.agregarItemComanda(itemComandaAgr.getComanda(), itemComandaAgr.getProducto(), itemComandaAgr.getCantidad());
+				}
+				request.getRequestDispatcher("/pedidos.jsp").forward(request, response);
+			}
+			catch (Exception e ) {
+				System.out.println(e.getMessage());
+				response .sendError(500, "Error al agregar la comanda" );
+			}
+		}
+		//Finalizar mesa
+		if(request.getParameter("tipoAccion") != null && request.getParameter("tipoAccion").equalsIgnoreCase("-4")){
+			try{
+				Cliente cliente = new Cliente();
+				ClienteABM clienteAbm = new ClienteABM();
+				Ticket ticket = new Ticket();
+				Camarero camarero = new Camarero();
+				CamareroABM camareroAbm = new CamareroABM();
+				Usuario usuario;
+				UsuarioABM usuarioAbm = new UsuarioABM();
+				String error = "";
+				camarero = camareroAbm.traerCamareroDNI(Integer.parseInt(request.getParameter("camareroDNI")));
+				if(request.getParameter("clienteDNI") != null){
+				cliente = clienteAbm.traerClienteDNI(Integer.parseInt(request.getParameter("clienteDNI")));
+					error= "El dni de cliente ingresado es invalido";
+					if(cliente==null) throw new Exception("El dni de cliente ingresado es invalido");
+				}
+				usuario = usuarioAbm.traerUsuario(Integer.parseInt(session.getAttribute("idUsuario").toString()));
+				mesa = mesaAbm.traerMesa(Integer.parseInt(request.getParameter("mesa")));
+				ticket = mesa.generarTicket(cliente, camarero, usuario);
+				mesa.finalizarMesa(ticket);
+				mesaAbm.modificarMesa(mesa);
+				request.getRequestDispatcher("/pedidos.jsp").forward(request, response);
+			}
+			catch (Exception e ) {
+				System.out.println(e.getMessage());
+				response .sendError(500, "Error al finalizar la mesa." );
+			}
+		}
+		//Liberar mesa
+		else if(request.getParameter("tipoAccion") != null && request.getParameter("tipoAccion").equalsIgnoreCase("-5")){
+			try{
+				LoginABM loginAbm = new LoginABM();
+				System.out.println(request.getParameter("user"));
+				Login login = loginAbm.traerLogin(request.getParameter("user"), request.getParameter("pass"));
+				if(login==null) throw new Exception("La contraseña introducida es incorrecta");
+				else{
+					mesa = mesaAbm.traerMesa(Integer.parseInt(request.getParameter("mesa")));
+					mesa.liberarMesa(mesa.getIdMesa());
+					mesaAbm.modificarMesa(mesa);
+				}
+				request.getRequestDispatcher("/pedidos.jsp").forward(request, response);
+			}
+			catch (Exception e ) {
+				System.out.println(e.getMessage());
+				response .sendError(500, "Error al liberar la mesa." );
+			}
+		}
 		else{
 			try {
-				System.out.println("fail");
 				int numMesa = Integer.parseInt(request.getParameter("mesa"));
 				mesa = mesaAbm.traerMesa(numMesa);
 				request.setAttribute("mesa", mesa);

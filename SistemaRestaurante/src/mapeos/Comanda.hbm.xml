@@ -9,10 +9,6 @@
 <property column= "activo" name = "activo" type = "boolean"/>
 <many-to-one name= "mesa" class = "datos.Mesa"
 column = "idMesa" not-null = "true"/>
-<many-to-one name = "cliente" class = "datos.Cliente"
-column = "idCliente" not-null = "true"/>
-<many-to-one name = "camarero" class = "datos.Camarero"
-column = "idCamarero" not-null = "true"/>
 <set name="itemComandas" table="itemComanda" order-by="idItemComanda asc"
 	inverse="true" lazy="true" fetch="select">
 	<key column="idComanda" not-null="true" />

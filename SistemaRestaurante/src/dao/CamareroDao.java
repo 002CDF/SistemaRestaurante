@@ -99,7 +99,7 @@ public class CamareroDao {
 			iniciaOperacion();
 			String hql= "from Camarero c where c.idCamarero =" +idCamarero;
 			objeto=(Camarero)session.createQuery(hql).uniqueResult();
-			Hibernate.initialize(objeto.getComandas());
+			//Hibernate.initialize(objeto.getComandas());
 		}
 		finally {
 			session .close();

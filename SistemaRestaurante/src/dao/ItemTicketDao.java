@@ -31,6 +31,21 @@ public class ItemTicketDao {
 		}
 		return id;
 	} 
+	
+	public int agregarItemTicketCompleto(ItemTicket objeto) {
+		int id = 0;
+		try {
+			iniciaOperacion();
+			id = Integer.parseInt(session.save(objeto).toString());
+			tx .commit();
+		} catch (HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		} finally {
+			session.close();
+		}
+		return id;
+	} 
 
 	public void actualizarItemTicket(ItemTicket objeto) throws HibernateException {
 		try {

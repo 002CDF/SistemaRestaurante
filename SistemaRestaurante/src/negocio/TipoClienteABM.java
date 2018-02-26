@@ -27,6 +27,10 @@ public class TipoClienteABM {
 		return dao.traerTipoCliente();
 	}
 
+	public TipoCliente traerTipoClienteNombre(String tipoCliente){
+		return dao.traerTipoClienteNombre(tipoCliente);
+	}
+	
 	public TipoCliente traerTipoClienteCompleto (long idTipoCliente){
 		return dao.traerTipoClienteCompleto(idTipoCliente);
 	}

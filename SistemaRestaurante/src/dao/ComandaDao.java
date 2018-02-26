@@ -44,6 +44,7 @@ public class ComandaDao {
 			session .close();
 		}
 	}
+	
 	public void eliminarComanda(Comanda objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
@@ -69,11 +70,25 @@ public class ComandaDao {
 		return objeto;
 	}
 	@SuppressWarnings ( "unchecked" )
+	public List<Comanda> traerComandaMesa(long idMesa) throws HibernateException {
+		List<Comanda> lista= null ;
+		try {
+			iniciaOperacion();
+			String hql= ("from Comanda c where c.activo is true and idMesa="+idMesa+" order by c.idComanda asc");
+			lista = session.createQuery(hql).list();
+			for (int i=0 ; i<lista.size() ; i++) Hibernate.initialize(lista.get(i).getItemComandas());
+		} finally {
+			session .close();
+		}
+		return lista;
+	}
+	@SuppressWarnings ( "unchecked" )
 	public List<Comanda> traerComanda() throws HibernateException {
 		List<Comanda> lista= null ;
 		try {
 			iniciaOperacion();
-			lista= session.createQuery("from Comanda c order by c.idComanda asc").list() ;
+			lista= session.createQuery("from Comanda c order by c.idComanda asc").list();
+			for (int i=0 ; i<lista.size() ; i++) Hibernate.initialize(lista.get(i).getItemComandas());
 		} finally {
 			session .close();
 		}

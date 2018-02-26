@@ -32,6 +32,21 @@ public class TicketDao {
 		return id;
 	} 
 
+	public int agregarTicketCompleto(Ticket objeto) {
+		int id = 0;
+		try {
+			iniciaOperacion();
+			id = Integer.parseInt(session.save(objeto).toString());
+			tx .commit();
+		} catch (HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		} finally {
+			session.close();
+		}
+		return id;
+	} 
+	
 	public void actualizarTicket(Ticket objeto) throws HibernateException {
 		try {
 			iniciaOperacion();
@@ -68,6 +83,18 @@ public class TicketDao {
 		}
 		return objeto;
 	}
+	public Ticket traerTicketMesa(long idMesa) throws HibernateException {
+		Ticket objeto = null ;
+		try {
+			iniciaOperacion();
+			String hql= "from Ticket t inner join fetch t.cliente inner join fetch t.camarero where t.fechaEmision in(select MAX(t.fechaEmision) from Ticket t where idMesa="+idMesa+")";
+			objeto=(Ticket)session.createQuery(hql).uniqueResult();
+			Hibernate.initialize(objeto.getItemTickets());
+		} finally {
+			session .close();
+		}
+		return objeto;
+	}
 	@SuppressWarnings ( "unchecked" )
 	public List<Ticket> traerTicket() throws HibernateException {
 		List<Ticket> lista= null ;
@@ -83,7 +110,7 @@ public class TicketDao {
 		Ticket objeto = null ;
 		try {
 			iniciaOperacion();
-			String hql= "from Ticket t where t.idTicket =" +idTicket;
+			String hql= "from Ticket t inner join fetch t.cliente inner join fetch t.camarero where t.idTicket =" +idTicket;
 			objeto=(Ticket)session.createQuery(hql).uniqueResult();
 			Hibernate.initialize(objeto.getItemTickets());
 		}

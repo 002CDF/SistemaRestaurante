@@ -24,6 +24,10 @@ public class ListaPrecioABM {
 	public ListaPrecio traerListaPrecio(long idListaPrecio){
 		return dao.traerListaPrecio(idListaPrecio);
 	}
+	
+	public ListaPrecio traerUltimaListaPrecio(long idTipoCliente){
+		return dao.traerUltimaListaPrecio(idTipoCliente);
+	}
 
 	public List<ListaPrecio> traerListaPrecio(){
 		return dao.traerListaPrecio();

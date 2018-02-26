@@ -1,9 +1,12 @@
 package dao;
 import java.util.List;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import datos.Camarero;
 import datos.Cliente;
 public class ClienteDao {
 	private static Session session;
@@ -68,6 +71,17 @@ public class ClienteDao {
 		}
 		return objeto;
 	}
+	public Cliente traerClienteDNI(long dniCliente) throws HibernateException {
+		Cliente objeto = null ;
+		try {
+			iniciaOperacion();
+			String hql= "from Cliente c where c.dni="+dniCliente;
+			objeto = (Cliente)session.createQuery(hql).uniqueResult();
+		} finally {
+			session .close();
+		}
+		return objeto;
+	}
 	@SuppressWarnings ( "unchecked" )
 	public List<Cliente> traerCliente() throws HibernateException {
 		List<Cliente> lista= null ;
@@ -85,7 +99,6 @@ public class ClienteDao {
 			iniciaOperacion();
 			String hql= "from Cliente c where c.idCliente =" +idCliente;
 			objeto=(Cliente)session.createQuery(hql).uniqueResult();
-			Hibernate.initialize(objeto.getComandas());
 		}
 		finally {
 			session .close();

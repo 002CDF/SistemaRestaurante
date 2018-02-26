@@ -8,20 +8,15 @@ public class Comanda {
 	private long idComanda;
 	private GregorianCalendar fecha;
 	private Mesa mesa;
-	private Cliente cliente;
 	private Set<ItemComanda> itemComandas;
-	private Camarero camarero;
 	private boolean activo;
 	
 	public Comanda(){}
 
-	public Comanda(GregorianCalendar fecha, Mesa mesa, Cliente cliente,
-			Camarero camarero, boolean activo) {
+	public Comanda(GregorianCalendar fecha, Mesa mesa, boolean activo) {
 		super();
 		this.fecha = fecha;
 		this.mesa = mesa;
-		this.cliente = cliente;
-		this.camarero = camarero;
 		this.activo = true;
 	}
 
@@ -49,28 +44,12 @@ public class Comanda {
 		this.mesa = mesa;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
 	public Set<ItemComanda> getItemComandas() {
 		return itemComandas;
 	}
 
 	public void setItemComandas(Set<ItemComanda> itemComandas) {
 		this.itemComandas = itemComandas;
-	}
-
-	public Camarero getCamarero() {
-		return camarero;
-	}
-
-	public void setCamarero(Camarero camarero) {
-		this.camarero = camarero;
 	}
 
 	public boolean isActivo() {
@@ -94,8 +73,7 @@ public class Comanda {
 	@Override
 	public String toString() {
 		return "idComanda= " + idComanda+ ", Fecha= " + fecha
-				+ ", Mesa= " + mesa+ ", Cliente= " + cliente
-				+ ", Lista ItemComandas= " + itemComandas+ ", Camarero= " + camarero
+				+ ", Mesa= " + mesa + ", Lista ItemComandas= " + itemComandas
 			    + "esta activa=" + activo;
 	}
 

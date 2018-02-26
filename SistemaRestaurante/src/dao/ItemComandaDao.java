@@ -69,6 +69,18 @@ public class ItemComandaDao {
 		return objeto;
 	}
 	@SuppressWarnings ( "unchecked" )
+	public List<ItemComanda> traerItemComandas(long idComanda) throws HibernateException { //Trae todos los item comanda de una comanda
+		List<ItemComanda> lista= null ;
+		try {
+			iniciaOperacion();
+			String hql= "from ItemComanda i where i.idComanda="+idComanda+" order by i.idItemComanda asc";
+			lista = session .createQuery(hql).list();
+		} finally {
+			session .close();
+		}
+		return lista;
+	}
+	@SuppressWarnings ( "unchecked" )
 	public List<ItemComanda> traerItemComanda() throws HibernateException {
 		List<ItemComanda> lista= null ;
 		try {

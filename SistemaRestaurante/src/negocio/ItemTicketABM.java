@@ -12,6 +12,10 @@ public class ItemTicketABM {
 		ItemTicket i = new ItemTicket (producto, ticket, precioUnitario, cantidad);
 		return dao.agregarItemTicket(i);
 	}
+	
+	public void agregarItemTicketCompleto(ItemTicket itemTicket){
+		dao.agregarItemTicketCompleto(itemTicket);
+	}
 
 	public void modificarItemTicket(ItemTicket itemTicket){
 		dao.actualizarItemTicket(itemTicket);

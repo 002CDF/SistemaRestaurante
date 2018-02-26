@@ -11,9 +11,8 @@ import datos.Mesa;
 public class ComandaABM {
 	private ComandaDao dao = new ComandaDao();
 
-	public int agregarComanda(GregorianCalendar fecha, Mesa mesa, Cliente cliente,
-			Camarero camarero, boolean activo){
-		Comanda c = new Comanda (fecha, mesa, cliente, camarero, activo);
+	public int agregarComanda(GregorianCalendar fecha, Mesa mesa, boolean activo){
+		Comanda c = new Comanda (fecha, mesa, activo);
 		return dao.agregarComanda(c);
 	}
 
@@ -28,6 +27,9 @@ public class ComandaABM {
 
 	public Comanda traerComanda(long idComanda){
 		return dao.traerComanda(idComanda);
+	}
+	public List<Comanda> traerComandaMesa(long idMesa){
+		return dao.traerComandaMesa(idMesa);
 	}
 
 	public List<Comanda> traerComanda(){
