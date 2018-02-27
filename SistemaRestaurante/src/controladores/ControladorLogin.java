@@ -6,9 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import negocio.LoginABM;
 import datos.Login;
+import facade.Facade;
 public class ControladorLogin extends HttpServlet {
+	
 	protected void doGet(HttpServletRequest request , HttpServletResponse response )
 			throws ServletException, IOException {
 		procesarPeticion(request, response );
@@ -24,8 +25,8 @@ public class ControladorLogin extends HttpServlet {
 		try {
 			String nombreUsuario =  request.getParameter("nombreUsuario");
 			String password = request.getParameter("password");
-			LoginABM loginAbm = new LoginABM();
-			Login login = loginAbm.traerLogin(nombreUsuario, password);
+			Facade facade = new Facade();
+			Login login = facade.getLoginABM().traerLogin(nombreUsuario, password);
 			session.setAttribute("idUsuario", login.getIdLogin());
 			session.setAttribute("nombreUsuario", login.getNombreUsuario());
 			request.getRequestDispatcher("/inicioRestaurante.jsp").forward(request, response);
