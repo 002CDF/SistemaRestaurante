@@ -87,7 +87,7 @@ public class TicketDao {
 		Ticket objeto = null ;
 		try {
 			iniciaOperacion();
-			String hql= "from Ticket t inner join fetch t.cliente inner join fetch t.camarero where t.fechaEmision in(select MAX(t.fechaEmision) from Ticket t where idMesa="+idMesa+")";
+			String hql= "from Ticket t left join fetch t.cliente inner join fetch t.camarero where t.fechaEmision in(select MAX(t.fechaEmision) from Ticket t where idMesa="+idMesa+")";
 			objeto=(Ticket)session.createQuery(hql).uniqueResult();
 			Hibernate.initialize(objeto.getItemTickets());
 		} finally {

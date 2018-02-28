@@ -161,7 +161,7 @@ public class ControladorMesa extends HttpServlet {
 				if(request.getParameter("clienteDNI") != null){
 				cliente = facade.getClienteABM().traerClienteDNI(Integer.parseInt(request.getParameter("clienteDNI")));
 					error= "El dni de cliente ingresado es invalido";
-					if(cliente==null) throw new Exception("El dni de cliente ingresado es invalido");
+					if(cliente.getIdCliente()==0) throw new Exception("El dni de cliente ingresado es invalido");
 				}
 				usuario = facade.getUsuarioABM().traerUsuario(Integer.parseInt(session.getAttribute("idUsuario").toString()));
 				mesa = facade.getMesaABM().traerMesa(Integer.parseInt(request.getParameter("mesa")));

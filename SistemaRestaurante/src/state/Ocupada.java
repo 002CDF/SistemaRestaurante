@@ -30,6 +30,7 @@ public class Ocupada extends EstadoMesa{
 	public EstadoMesa finalizar(Ticket ticket) {
 		ItemTicketABM itemTicketAbm = new ItemTicketABM();
 		TicketABM ticketAbm = new TicketABM();
+		if(ticket.getCliente().getIdCliente()==0) ticket.setCliente(null);
 		long idTicketUltimo = ticketAbm.agregarTicketCompleto(ticket);
 		ticket.setIdTicket(idTicketUltimo);
 		for (ItemTicket itemTicket : ticket.getItemTickets()) {

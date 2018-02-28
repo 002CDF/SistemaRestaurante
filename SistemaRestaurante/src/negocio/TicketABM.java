@@ -40,7 +40,7 @@ public class TicketABM {
 	public Ticket traerTicketMesa(long idMesa){
 		return dao.traerTicketMesa(idMesa);
 	}
-
+	
 	public List<Ticket> traerTicket(){
 		return dao.traerTicket();
 	}

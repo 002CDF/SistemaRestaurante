@@ -141,7 +141,7 @@ public class Mesa {
 		ticket.setEsCortesia(false);
 		ticket.setItemTickets(itemTickets); //Paso la lista vacia para trabajarla desde el objeto
 		//Trayendo tipo cliente
-		if(cliente==null) tipoCliente = tipoClienteAbm.traerTipoCliente(4);
+		if(cliente.getIdCliente()==0) tipoCliente = tipoClienteAbm.traerTipoCliente(4);
 		else tipoCliente = tipoClienteAbm.traerTipoCliente(cliente.getTipoCliente().getIdTipoCliente()); //Tipo cliente completo
 		listaPrecio = listaPrecioAbm.traerUltimaListaPrecio(tipoCliente.getIdTipoCliente());
 		for (Comanda comanda : comandas) {

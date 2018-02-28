@@ -26,6 +26,13 @@ PrintWriter salida = response.getWriter();
 
 //Levantando el ticket completo:
 ticket = ticketAbm.traerTicketMesa(Integer.parseInt(request.getParameter("nroMesa")));
+// System.out.println(ticket.getMonto());
+// System.out.println(ticket.getCliente().getIdCliente());
+// if(ticket.getCliente().getIdCliente()!=0){
+// 	ticket = null;
+// 	ticket = ticketAbm.traerTicketMesa(Integer.parseInt(request.getParameter("nroMesa")));
+// }
+
 
 salida.println("<h3>Pre-ticket: </h3>");
 
