@@ -43,7 +43,7 @@ $(document).ready(function(){
 	<div class="btn-group" role="group" aria-label="Grupo">
 	 <button type="button" class="btn btn-primary">Sistema Restaurante | Pedidos</button>
   	 <button type="button" class="btn btn-secondary" onclick="location.href='/SistemaRestaurante/inicioRestaurante.jsp';">Inicio</button>
- 	 <button type="button" class="btn btn-secondary">Salones</button>
+  	 <button type="button" class="btn btn-secondary" onclick="location.href='/SistemaRestaurante/informe.jsp';">Informe</button>
  	 <button type="button" class="btn btn-secondary" onclick="location.href='SistemaRestaurante/Logout';">Perfil</button>
 	</div>
 	<div class="text-right">

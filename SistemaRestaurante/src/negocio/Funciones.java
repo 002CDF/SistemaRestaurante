@@ -439,9 +439,8 @@ public class Funciones {
 		  if(dia.length() == 1){
 		   dia = "0"+dia;
 		  }
-
+		  
 		  return "'"+anio+"-"+mes+"-"+dia+"'";
-
 		 }
 
 	/* CALCULAR EDAD EN STRING

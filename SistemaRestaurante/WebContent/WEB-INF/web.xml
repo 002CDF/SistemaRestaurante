@@ -50,4 +50,12 @@
     <servlet-name>ControladorComanda</servlet-name>
     <url-pattern>/Comanda</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Informe</servlet-name>
+    <servlet-class> controladores.ControladorInforme </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Informe</servlet-name>
+    <url-pattern>/Informe</url-pattern>
+  </servlet-mapping>
 </web-app>

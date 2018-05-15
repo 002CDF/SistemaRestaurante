@@ -21,7 +21,8 @@
 	<div class="btn-group" role="group" aria-label="Grupo">
 	 <button type="button" class="btn btn-primary">Sistema Restaurante | Inicio</button>
   	 <button type="submit" class="btn btn-secondary" onclick="location.href='/SistemaRestaurante/pedidos.jsp';">Pedidos</button>
- 	 <button type="button" class="btn btn-secondary">Salones</button>
+ 	 <button type="submit" class="btn btn-secondary" onclick="location.href='/SistemaRestaurante/informe.jsp';">Informe</button>
+ 	 
  	 <button type="button" class="btn btn-secondary">Perfil</button>
 	</div>
 	<div class="text-right">
