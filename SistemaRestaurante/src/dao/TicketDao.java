@@ -1,9 +1,15 @@
 package dao;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
+
+import negocio.Funciones;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import datos.Ticket;
 public class TicketDao {
 	private static Session session;
@@ -119,4 +125,24 @@ public class TicketDao {
 		}
 		return objeto;
 	}
+	
+	@SuppressWarnings ( "unchecked" )
+	public List<Ticket> traerInformeTicket (String fechaInicio, String fechaFin) throws HibernateException {
+		List<Ticket> lista= null ;
+		try {
+			int fechaFin_dia = Integer.parseInt(fechaFin.substring(8, 10));
+			int fechaFin_mes = Integer.parseInt(fechaFin.substring(5, 7));
+			int fechaFin_anio = Integer.parseInt(fechaFin.substring(0, 4));
+			GregorianCalendar fechaFinPosterior = new GregorianCalendar(fechaFin_anio, fechaFin_mes-1, fechaFin_dia);
+			fechaFinPosterior.add(Calendar.DAY_OF_YEAR, 1);
+			String fechaFinPost = ""+Funciones.traerNumeroAnio(fechaFinPosterior)+"-"+Funciones.traerNumeroMes(fechaFinPosterior)+"-"+Funciones.traerNumeroDiaMes(fechaFinPosterior);
+			System.out.println(fechaFinPost);
+			iniciaOperacion();
+			lista= session.createQuery("from Ticket t where t.fechaEmision between '"+fechaInicio+"' and '"+fechaFinPost+"'").list();
+		} finally {
+			session .close();
+		}
+		return lista;
+	}
+	
 }

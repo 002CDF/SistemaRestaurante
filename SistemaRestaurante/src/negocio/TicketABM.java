@@ -49,4 +49,7 @@ public class TicketABM {
 		return dao.traerTicketCompleto(idTicket);
 	}
 
+	public List<Ticket> traerInformeTicket(String fechaInicio, String fechaFin){
+		return dao.traerInformeTicket(fechaInicio,fechaFin);
+	}
 }

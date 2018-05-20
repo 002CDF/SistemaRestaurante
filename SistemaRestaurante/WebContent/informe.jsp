@@ -2,7 +2,12 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="datos.Login"%>
+<%@page import="datos.Informe"%>
 <%
+	int hayFecha = 0; //Por defecto
+	Informe informe = null;
+	if(session.getAttribute("hayFecha") != null) hayFecha = (Integer) session.getAttribute("hayFecha");
+	if(session.getAttribute("informe") != null) informe = (Informe) session.getAttribute("informe");
 	String nombreUsuario = (String) session.getAttribute("nombreUsuario");
 	if (nombreUsuario != null) {
 %>
@@ -93,18 +98,7 @@ function pasarValorFecha(){
 
 
 	<form name="informe" method="POST" action="/SistemaRestaurante/Informe" onsubmit="pasarValorFecha()">
-		<p>
-			<strong>Fecha de comandas</strong><br>
-			<input id="calendar-inputField"/>
-			<button id="calendar-trigger">...</button>
-			<script>
-				Calendar.setup({
-					trigger : "calendar-trigger",
-					inputField : "calendar-inputField"
-				});
-			</script>
-		</p> 		
-		
+	<strong>Fechas de tickets</strong><br>	
 <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 25%">
    <i class="fa fa-calendar"></i> &nbsp;
     <span id="fecha" name="fecha"></span> <i class="ranges"></i>
@@ -142,8 +136,36 @@ $(function() {
 <input type="hidden" id="fechaInicio" name="fechaInicio" value="">
 <input type="hidden" id="fechaFin" name="fechaFin" value="">
 
-
 <input type="submit" name="informe" class="btn btn-primary" value="Generar Informe">
+
+<br>
+<br/>
+
+ <% if(hayFecha==1){ %>
+<table class="table table-striped">
+	<tr>
+ 		<th>Fecha Inicio</th>
+ 		<th>Fecha Fin</th>
+ 		<th>Cantidad</th>
+		 <th>Facturacion total</th>
+ 		<th>Mayor ticket facturado</th>
+ 		<th>Promedio</th>
+	</tr>
+
+	<tr>
+ 		<td><%out.print(informe.getFechaInicio()); %></td>
+ 		<td><%out.print(informe.getFechaFin()); %></td> 
+ 		<td><%out.print(informe.getCantidadTickets()); %></td>
+ 		<td>$<%out.print(informe.getTotalFacturado()); %></td>
+ 		<td>$<%out.print(informe.getMaxTicket()); %></td>
+ 		<td>$<%out.print(informe.getPromedio()); %></td>
+	</tr>
+</table>
+<% session.removeAttribute("hayFecha");
+session.removeAttribute("informe");
+%>
+<%} %>
+
 </form>
 
 </body>
