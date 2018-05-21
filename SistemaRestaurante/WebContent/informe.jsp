@@ -32,7 +32,7 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
+<!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" /> -->
 
 <script>
 function pasarValorFecha(){
@@ -144,9 +144,9 @@ $(function() {
  <% if(hayFecha==1){ %>
 <table class="table table-striped">
 	<tr>
- 		<th>Fecha Inicio</th>
- 		<th>Fecha Fin</th>
- 		<th>Cantidad</th>
+ 		<th>Desde</th>
+ 		<th>Hasta</th>
+ 		<th>Tickets emitidos</th>
 		 <th>Facturacion total</th>
  		<th>Mayor ticket facturado</th>
  		<th>Promedio</th>

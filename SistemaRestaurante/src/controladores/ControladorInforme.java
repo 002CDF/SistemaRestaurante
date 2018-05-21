@@ -31,8 +31,6 @@ public class ControladorInforme extends HttpServlet {
 			double promedio = 0;
 			String fechaInicio =  request.getParameter("fechaInicio");
 			String fechaFin =  request.getParameter("fechaFin");
-			System.out.println(fechaInicio);
-			System.out.println(fechaFin);
 			TicketABM tabm = new TicketABM();
 			List<Ticket> listaTickets= tabm.traerInformeTicket(fechaInicio, fechaFin);
 			int cantidadTickets = listaTickets.size();

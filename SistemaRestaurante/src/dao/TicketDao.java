@@ -136,7 +136,6 @@ public class TicketDao {
 			GregorianCalendar fechaFinPosterior = new GregorianCalendar(fechaFin_anio, fechaFin_mes-1, fechaFin_dia);
 			fechaFinPosterior.add(Calendar.DAY_OF_YEAR, 1);
 			String fechaFinPost = ""+Funciones.traerNumeroAnio(fechaFinPosterior)+"-"+Funciones.traerNumeroMes(fechaFinPosterior)+"-"+Funciones.traerNumeroDiaMes(fechaFinPosterior);
-			System.out.println(fechaFinPost);
 			iniciaOperacion();
 			lista= session.createQuery("from Ticket t where t.fechaEmision between '"+fechaInicio+"' and '"+fechaFinPost+"'").list();
 		} finally {
