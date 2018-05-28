@@ -1,6 +1,7 @@
 package datos;
 
 import java.util.GregorianCalendar;
+import java.util.List;
 
 public class Informe {
 	
@@ -10,6 +11,7 @@ public class Informe {
 	private double totalFacturado;
 	private double maxTicket;
 	private double promedio;
+	private List<Ticket> tickets;
 	
 	public Informe(){}
 	
@@ -84,6 +86,15 @@ public class Informe {
 	public void setPromedio(double promedio) {
 		this.promedio = promedio;
 	}
+
+	public List<Ticket> getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
+	}
+	
 	
 	
 }

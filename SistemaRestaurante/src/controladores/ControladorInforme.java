@@ -40,6 +40,7 @@ public class ControladorInforme extends HttpServlet {
 			}
 			if(cantidadTickets>0) promedio = totalFacturado/cantidadTickets;
 			Informe informe = new Informe(fechaInicio, fechaFin, cantidadTickets, totalFacturado, maxTicket, promedio);
+			informe.setTickets(listaTickets);
 			session.setAttribute("informe", informe); //Objeto informe en variable de sesion (debe ser borrado posteriormente)
 			session.setAttribute("hayFecha", 1); //Flag para validar en la vista (se debe volver a 0 una vez que se muestra)
 			
