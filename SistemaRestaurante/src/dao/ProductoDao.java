@@ -69,6 +69,17 @@ public class ProductoDao {
 		return objeto;
 	}
 	@SuppressWarnings ( "unchecked" )
+	public List<Producto> traerProductoPorRubro(long idRubro) throws HibernateException {
+		List<Producto> lista= null ;
+		try {
+			iniciaOperacion();
+			lista= session.createQuery("from Producto p where idRubro="+idRubro+" order by p.nombre asc").list() ;
+		} finally {
+			session .close();
+		}
+		return lista;
+	}
+	@SuppressWarnings ( "unchecked" )
 	public List<Producto> traerProducto() throws HibernateException {
 		List<Producto> lista= null ;
 		try {

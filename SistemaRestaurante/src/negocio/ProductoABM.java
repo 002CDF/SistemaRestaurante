@@ -33,7 +33,11 @@ public class ProductoABM {
 	public List<Producto> traerProducto(){
 		return dao.traerProducto();
 	}
-
+	
+	public List<Producto> traerProductoPorRubro(long idRubro){
+		return dao.traerProductoPorRubro(idRubro);
+	}
+	
 	public Producto traerProductoCompleto (long idProducto){
 		return dao.traerProductoCompleto(idProducto);
 	}

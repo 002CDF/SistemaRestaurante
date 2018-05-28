@@ -54,19 +54,19 @@ $(document).ready(function(){
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-            	$('#Producto1').append(this.responseText);
-            	$('#Producto2').append(this.responseText);
-            	$('#Producto3').append(this.responseText);
-            	$('#Producto4').append(this.responseText);
-            	$('#Producto5').append(this.responseText);
-            	$('#Producto_1').append(this.responseText);
-            	$('#Producto_2').append(this.responseText);
-            	$('#Producto_3').append(this.responseText);
-            	$('#Producto_4').append(this.responseText);
-            	$('#Producto_5').append(this.responseText);
+            	$('#tipoProducto1').append(this.responseText);
+            	$('#tipoProducto2').append(this.responseText);
+            	$('#tipoProducto3').append(this.responseText);
+            	$('#tipoProducto4').append(this.responseText);
+            	$('#tipoProducto5').append(this.responseText);
+            	$('#tipoProducto_1').append(this.responseText);
+            	$('#tipoProducto_2').append(this.responseText);
+            	$('#tipoProducto_3').append(this.responseText);
+            	$('#tipoProducto_4').append(this.responseText);
+            	$('#tipoProducto_5').append(this.responseText);
             }
         };
-        xmlhttp.open("GET","ajax_Productos.jsp?="+1,true);
+        xmlhttp.open("GET","ajax_tipoProductos.jsp?="+1,true);
         xmlhttp.send();
 });
 </script>
@@ -157,6 +157,43 @@ function validarCliente(){
 <script src="js/botonComandas.js"></script>
 <script src="js/botonComandas2.js"></script>
 
+<script>
+function traerProductos(idRubro, nombreSelect){
+	$.ajax({    //create an ajax request to display.php
+        type: "GET",
+        url: "ajax_Productos.jsp",       
+        data: jQuery.param({ idRubro: idRubro}),
+        dataType: "html",   //expect html to be returned                
+        success: function(response){
+        	if(nombreSelect.indexOf('1') > -1){
+        		$("#Producto_1").html(response);
+        		$("#Producto1").html(response);
+        	}
+        	if(nombreSelect.indexOf('2') > -1){
+        		$("#Producto_2").html(response);
+        		$("#Producto2").html(response);
+        	}
+        	if(nombreSelect.indexOf('3') > -1){
+        		$("#Producto_3").html(response);
+        		$("#Producto3").html(response);
+        	}
+        	if(nombreSelect.indexOf('4') > -1){
+        		$("#Producto_4").html(response);
+        		$("#Producto4").html(response);
+        	}
+        	if(nombreSelect.indexOf('5') > -1){
+        		$("#Producto_5").html(response);
+        		$("#Producto5").html(response);
+        	}
+    	}
+	});
+}
+</script>
+
+
+
+
+
 
 <body>
 <!-- Barra de navegación -->
@@ -211,39 +248,56 @@ function validarCliente(){
 		<input type="button" class="btn btn-default" id="addComanda" value="Agregar comanda" onclick="agregarComanda()">
 		<input type="button" class="btn btn-default" id="deleteComanda" value="Quitar" onclick="quitarComanda()"></p>
     	    	
-    	<div class="btn-group" id="Comanda1" role="group">
-        <select class="form-control" name="Producto1" id="Producto1">
-        <option value="-1" selected>Seleccionar producto</option>
+    	<div class="btn-group" id="Comanda_1" role="group">
+        <select class="form-control col-6" style="margin-right:4px;" name="tipoProducto1" id="tipoProducto1" onchange="traerProductos(this.value, this.name)">
+        <option value="-1" selected disabled>Tipo de producto</option>
+        </select>
+        <select class="form-control" style="margin-right:4px;" name="Producto1" id="Producto1">
+        <option value="-1" selected disabled>Producto</option>
         </select>
         <input class="form-control" size="3" id="Cantidad1" name="Cantidad1" type="text" placeholder="Cant." autocomplete="off">
 	    </div>
 	    <br>
+	    
 	    <div class="btn-group" id="Comanda2" role="group" style="display: none">
+	    <select class="form-control col-6" name="tipoProducto2" id="tipoProducto2" onchange="traerProductos(this.value, this.name)">
+        <option value="-1" selected disabled>Tipo de producto</option>
+        </select>
         <select class="form-control" name="Producto2" id="Producto2">
-        <option value="-1" selected disabled>Seleccionar producto</option>
+        <option value="-1" selected disabled>Producto</option>
         </select>
         <input class="form-control" size="3" id="Cantidad2" name="Cantidad2" type="text" placeholder="Cant." autocomplete="off">
 	    </div>
 	    <br>
+	    
 	    <div class="btn-group" id="Comanda3" role="group" style="display: none">
+	    <select class="form-control" name="tipoProducto3" id="tipoProducto3" onchange="traerProductos(this.value, this.name)">
+        <option value="-1" selected disabled>Tipo de producto</option>
+        </select>
         <select class="form-control" name="Producto3" id="Producto3">
-        <option value="-1" selected disabled>Seleccionar producto</option>
+        <option value="-1" selected disabled>Producto</option>
         </select>
         <input class="form-control" size="3" id="Cantidad3" name="Cantidad3" type="text" placeholder="Cant." autocomplete="off">
         <br>
 	    </div>
 	    
 	    <div class="btn-group" id="Comanda4" role="group" style="display: none">
+	    <select class="form-control" name="tipoProducto4" id="tipoProducto4" onchange="traerProductos(this.value, this.name)">
+        <option value="-1" selected disabled>Tipo de producto</option>
+        </select>
         <select class="form-control" name="Producto4" id="Producto4">
-        <option value="-1" selected disabled>Seleccionar producto</option>
+        <option value="-1" selected disabled>Producto</option>
         </select>
         <input class="form-control" size="3" id="Cantidad4" name="Cantidad4" type="text" placeholder="Cant." autocomplete="off">
         <br>
 	    </div>
 	    
 	    <div class="btn-group" id="Comanda5" role="group" style="display: none">
+	    <select class="form-control" name="tipoProducto5" id="tipoProducto5" onchange="traerProductos(this.value, this.name)">
+        <option value="-1" selected disabled>Tipo de producto</option>
+        </select>
         <select class="form-control" name="Producto5" id="Producto5">
-        <option value="-1" selected disabled>Seleccionar producto</option>
+        <option value="-1" selected disabled>Producto</option>
         </select>
         <input class="form-control" size="3" id="Cantidad5" name="Cantidad5" type="text" placeholder="Cant." autocomplete="off">
         <br>
@@ -278,38 +332,55 @@ function validarCliente(){
 		<input type="button" class="btn btn-default" id="deleteComanda2" value="Quitar" onclick="quitarComanda2()"></p>
     	    	
     	<div class="btn-group" id="Comanda_1" role="group">
-        <select class="form-control" name="Producto_1" id="Producto_1">
-        <option value="-1" selected>Seleccionar producto</option>
+        <select class="form-control col-6" style="margin-right:4px;" name="tipoProducto_1" id="tipoProducto_1" onchange="traerProductos(this.value, this.name)">
+        <option value="-1" selected disabled>Tipo de producto</option>
+        </select>
+        <select class="form-control" style="margin-right:4px;" name="Producto_1" id="Producto_1">
+        <option value="-1" selected>Producto</option>
         </select>
         <input class="form-control" size="3" id="Cantidad_1" name="Cantidad_1" type="text" placeholder="Cant." autocomplete="off">
 	    </div>
 	    <br>
+	    
 	    <div class="btn-group" id="Comanda_2" role="group" style="display: none">
+	    <select class="form-control" name="tipoProducto_2" id="tipoProducto_2" onchange="traerProductos(this.value, this.name)">
+        <option value="-1" selected disabled>Tipo de producto</option>
+        </select>
         <select class="form-control" name="Producto_2" id="Producto_2">
-        <option value="-1" selected disabled>Seleccionar producto</option>
+        <option value="-1" selected disabled>Producto</option>
         </select>
         <input class="form-control" size="3" id="Cantidad_2" name="Cantidad_2" type="text" placeholder="Cant." autocomplete="off">
 	    </div>
 	    <br>
+	    
 	    <div class="btn-group" id="Comanda_3" role="group" style="display: none">
+	    <select class="form-control" name="tipoProducto_3" id="tipoProducto_3" onchange="traerProductos(this.value, this.name)">
+        <option value="-1" selected disabled>Tipo de producto</option>
+        </select>
         <select class="form-control" name="Producto_3" id="Producto_3">
-        <option value="-1" selected disabled>Seleccionar producto</option>
+        <option value="-1" selected disabled>Producto</option>
         </select>
         <input class="form-control" size="3" id="Cantidad_3" name="Cantidad_3" type="text" placeholder="Cant." autocomplete="off">
         <br>
 	    </div>
 	    
 	    <div class="btn-group" id="Comanda_4" role="group" style="display: none">
+	    <select class="form-control" name="tipoProducto_4" id="tipoProducto_4" onchange="traerProductos(this.value, this.name)">
+        <option value="-1" selected disabled>Tipo de producto</option>
+        </select>
         <select class="form-control" name="Producto_4" id="Producto_4">
-        <option value="-1" selected disabled>Seleccionar producto</option>
+        <option value="-1" selected disabled>Producto</option>
         </select>
         <input class="form-control" size="3" id="Cantidad_4" name="Cantidad_4" type="text" placeholder="Cant." autocomplete="off">
         <br>
 	    </div>
 	    
 	    <div class="btn-group" id="Comanda_5" role="group" style="display: none">
+	    <select class="form-control" name="tipoProducto_5" id="tipoProducto_5" onchange="traerProductos(this.value, this.name)">
+        <option value="-1" selected disabled>Tipo de producto</option>
+        </select>
         <select class="form-control" name="Producto_5" id="Producto_5">
-        <option value="-1" selected disabled>Seleccionar producto</option>
+        <option value="-1" selected disabled>Producto</option>
         </select>
         <input class="form-control" size="3" id="Cantidad_5" name="Cantidad_5" type="text" placeholder="Cant." autocomplete="off">
         <br>
