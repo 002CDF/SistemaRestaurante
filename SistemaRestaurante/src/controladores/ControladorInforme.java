@@ -29,6 +29,7 @@ public class ControladorInforme extends HttpServlet {
 			double totalFacturado=0;
 			double maxTicket = 0;
 			double promedio = 0;
+			String tipoInforme = request.getParameter("tipoInforme");
 			String fechaInicio =  request.getParameter("fechaInicio");
 			String fechaFin =  request.getParameter("fechaFin");
 			TicketABM tabm = new TicketABM();
@@ -43,6 +44,7 @@ public class ControladorInforme extends HttpServlet {
 			informe.setTickets(listaTickets);
 			session.setAttribute("informe", informe); //Objeto informe en variable de sesion (debe ser borrado posteriormente)
 			session.setAttribute("hayFecha", 1); //Flag para validar en la vista (se debe volver a 0 una vez que se muestra)
+			if(tipoInforme.contains("D")) session.setAttribute("informeDetallado", 1); //Si el informe es datallado crea variable de sesión y la setea en 1 (debe ser borrado posteriormente)
 			
 			request.getRequestDispatcher("/informe.jsp").forward(request, response);
 		}

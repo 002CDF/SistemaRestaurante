@@ -3,11 +3,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="datos.Login"%>
 <%@page import="datos.Informe"%>
+<%@page import="negocio.Funciones"%>
 <%
+	Informe informe = null; //Por defecto
 	int hayFecha = 0; //Por defecto
-	Informe informe = null;
-	if(session.getAttribute("hayFecha") != null) hayFecha = (Integer) session.getAttribute("hayFecha");
+	int informeDetallado = 0; //Por defecto
 	if(session.getAttribute("informe") != null) informe = (Informe) session.getAttribute("informe");
+	if(session.getAttribute("hayFecha") != null) hayFecha = (Integer) session.getAttribute("hayFecha");
+	if(session.getAttribute("informeDetallado") != null) informeDetallado = (Integer) session.getAttribute("informeDetallado");
 	String nombreUsuario = (String) session.getAttribute("nombreUsuario");
 	if (nombreUsuario != null) {
 %>
@@ -97,12 +100,13 @@ function pasarValorFecha(){
 
 
 
-	<form name="informe" method="POST" action="/SistemaRestaurante/Informe" onsubmit="pasarValorFecha()">
-	<strong>Fechas de tickets</strong><br>	
-<div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 25%">
-   <i class="fa fa-calendar"></i> &nbsp;
+<form name="informe" method="POST" action="/SistemaRestaurante/Informe" onsubmit="pasarValorFecha()">
+<fieldset>
+	<strong>Fechas de tickets</strong><br>
+	<div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 25%">
+    <i class="fa fa-calendar"></i> &nbsp;
     <span id="fecha" name="fecha"></span> <i class="ranges"></i>
-</div>
+	</div>
 
 <script type="text/javascript">
 $(function() {
@@ -133,15 +137,23 @@ $(function() {
 </script>
 
 
-<input type="hidden" id="fechaInicio" name="fechaInicio" value="">
-<input type="hidden" id="fechaFin" name="fechaFin" value="">
+	<input type="hidden" id="fechaInicio" name="fechaInicio" value="">
+	<input type="hidden" id="fechaFin" name="fechaFin" value="">
 
-<input type="submit" name="informe" class="btn btn-primary" value="Generar Informe">
+	<br>
 
+	<div class="form-group">
+		<strong>Tipo de informe</strong><br>
+		<label class="radio-inline"><input type="radio" name="tipoInforme" value="G" checked="checked">General</label><br>
+		<label class="radio-inline"><input type="radio" name="tipoInforme" value="D">Detallado</label>
+	</div>
+
+	<input type="submit" name="informe" class="btn btn-primary" value="Generar Informe">
+</fieldset>
 <br>
 <br/>
 
- <% if(hayFecha==1){ %>
+<% if(hayFecha==1){ %>
 <table class="table table-striped">
 	<tr>
  		<th>Desde</th>
@@ -158,14 +170,38 @@ $(function() {
  		<td><%out.print(informe.getCantidadTickets()); %></td>
  		<td>$<%out.print(informe.getTotalFacturado()); %></td>
  		<td>$<%out.print(informe.getMaxTicket()); %></td>
- 		<td>$<%out.print(informe.getPromedio()); %></td>
+ 		<td>$<%out.print(String.format("%.2f", informe.getPromedio())); %></td>
 	</tr>
 </table>
 <% session.removeAttribute("hayFecha");
 session.removeAttribute("informe");
 %>
-<%} %>
-
+<% } %>
+<br>
+<% if(informeDetallado==1){ %>
+<table class="table table-striped">
+	<tr>
+ 		<th>ID Ticket</th>
+ 		<th>DNI Cliente</th>
+ 		<th>DNI Camarero</th>
+ 		<th>Nro. Mesa</th>
+ 		<th>Fecha</th>
+ 		<th>Importe</th>
+	</tr>
+	
+	<%for(int i=0 ; i<informe.getTickets().size() ; i++){ %>
+	<tr>
+ 		<td><%out.print(informe.getTickets().get(i).getIdTicket()); %></td>
+ 		<td><%out.print(informe.getTickets().get(i).getCliente().getDni()); %></td> 
+ 		<td><%out.print(informe.getTickets().get(i).getCamarero().getDni()); %></td>
+ 		<td><%out.print(informe.getTickets().get(i).getMesa().getNroMesa()); %></td>
+ 		<td><%out.print(Funciones.traerFechaCorta(informe.getTickets().get(i).getFechaEmision())); %></td>
+ 		<td>$<%out.print(informe.getTickets().get(i).getMonto()); %></td>
+	</tr>
+	<%} %>
+</table>
+<% session.removeAttribute("informeDetallado"); %>
+<% } %>
 </form>
 
 </body>
