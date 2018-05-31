@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
--- Host: localhost    Database: SistemaRestaurante
+-- Host: localhost    Database: sistemarestaurante
 -- ------------------------------------------------------
--- Server version	5.6.22-log
+-- Server version	5.5.32
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -88,7 +88,7 @@ CREATE TABLE `comanda` (
   PRIMARY KEY (`idComanda`),
   KEY `fk_Comanda_Mesa1_idx` (`idMesa`),
   CONSTRAINT `fk_Comanda_Mesa1` FOREIGN KEY (`idMesa`) REFERENCES `mesa` (`idMesa`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +97,7 @@ CREATE TABLE `comanda` (
 
 LOCK TABLES `comanda` WRITE;
 /*!40000 ALTER TABLE `comanda` DISABLE KEYS */;
+INSERT INTO `comanda` VALUES (1,1,'2018-05-15 16:51:56','\0'),(2,1,'2018-05-15 17:13:09','\0'),(3,1,'2018-05-20 12:56:39','\0'),(4,1,'2018-05-20 14:51:46','\0'),(5,1,'2017-06-04 12:54:33','\0'),(6,1,'2018-05-15 00:00:00','\0'),(7,2,'2018-05-17 10:00:00','\0'),(8,1,'2018-05-10 20:00:00','\0'),(9,2,'2018-05-20 01:00:00','\0'),(10,3,'2018-05-20 02:00:00','\0'),(11,3,'2018-05-15 03:00:00','\0'),(12,3,'2018-05-18 03:00:00','\0'),(13,4,'2018-05-14 04:00:00','\0'),(14,4,'2018-05-13 05:00:00','\0'),(15,5,'2018-05-20 06:00:00','\0'),(16,1,'2018-05-25 07:00:00','\0'),(17,1,'2018-05-20 08:00:00','\0'),(18,1,'2018-04-20 10:00:00','\0'),(19,3,'2018-04-20 15:00:00','\0'),(20,1,'2018-04-10 14:00:00','\0'),(21,4,'2018-04-15 14:00:00','\0'),(22,2,'2018-04-02 17:00:00','\0'),(23,1,'2018-05-28 15:09:00','\0'),(24,1,'2018-05-28 15:13:58','\0'),(25,2,'2018-05-28 15:17:23','\0'),(26,2,'2018-05-28 15:17:39','\0');
 /*!40000 ALTER TABLE `comanda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -155,13 +156,13 @@ INSERT INTO `ingrediente` VALUES (1,'Carne','carnes','kg',NULL,NULL,0),(2,'Pollo
 UNLOCK TABLES;
 
 --
--- Table structure for table `itemComanda`
+-- Table structure for table `itemcomanda`
 --
 
-DROP TABLE IF EXISTS `itemComanda`;
+DROP TABLE IF EXISTS `itemcomanda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `itemComanda` (
+CREATE TABLE `itemcomanda` (
   `idItemComanda` int(11) NOT NULL AUTO_INCREMENT,
   `idComanda` int(11) NOT NULL,
   `idProducto` int(11) NOT NULL,
@@ -171,26 +172,27 @@ CREATE TABLE `itemComanda` (
   KEY `fk_ItemComanda_Producto1_idx` (`idProducto`),
   CONSTRAINT `fk_ItemComanda_Comanda1` FOREIGN KEY (`idComanda`) REFERENCES `comanda` (`idComanda`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ItemComanda_Producto1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `itemComanda`
+-- Dumping data for table `itemcomanda`
 --
 
-LOCK TABLES `itemComanda` WRITE;
-/*!40000 ALTER TABLE `itemComanda` DISABLE KEYS */;
-/*!40000 ALTER TABLE `itemComanda` ENABLE KEYS */;
+LOCK TABLES `itemcomanda` WRITE;
+/*!40000 ALTER TABLE `itemcomanda` DISABLE KEYS */;
+INSERT INTO `itemcomanda` VALUES (1,1,3,2),(2,2,1,2),(3,3,3,2),(4,4,1,3),(5,1,1,1),(6,1,1,1),(7,1,1,2),(8,2,2,2),(9,2,2,2),(10,2,3,1),(11,3,2,1),(12,1,3,3),(13,5,3,2),(14,5,2,2),(15,6,2,3),(16,6,1,2),(17,6,1,1),(18,3,2,3),(19,3,3,3),(20,3,3,2),(21,2,2,2),(22,23,3,1),(23,23,1,2),(24,24,1,1),(25,25,2,1),(26,25,1,1),(27,26,1,1);
+/*!40000 ALTER TABLE `itemcomanda` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `itemListaPrecio`
+-- Table structure for table `itemlistaprecio`
 --
 
-DROP TABLE IF EXISTS `itemListaPrecio`;
+DROP TABLE IF EXISTS `itemlistaprecio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `itemListaPrecio` (
+CREATE TABLE `itemlistaprecio` (
   `idItemListaPrecio` int(11) NOT NULL AUTO_INCREMENT,
   `idListaPrecio` int(11) NOT NULL,
   `idProducto` int(11) NOT NULL,
@@ -204,23 +206,23 @@ CREATE TABLE `itemListaPrecio` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `itemListaPrecio`
+-- Dumping data for table `itemlistaprecio`
 --
 
-LOCK TABLES `itemListaPrecio` WRITE;
-/*!40000 ALTER TABLE `itemListaPrecio` DISABLE KEYS */;
-INSERT INTO `itemListaPrecio` VALUES (1,1,1,100),(2,3,3,200),(3,1,2,150),(4,2,3,400),(5,1,3,200),(6,2,1,110),(7,2,2,165),(8,3,1,75),(9,3,2,130),(10,4,1,135),(11,4,2,200),(12,4,3,260);
-/*!40000 ALTER TABLE `itemListaPrecio` ENABLE KEYS */;
+LOCK TABLES `itemlistaprecio` WRITE;
+/*!40000 ALTER TABLE `itemlistaprecio` DISABLE KEYS */;
+INSERT INTO `itemlistaprecio` VALUES (1,1,1,100),(2,3,3,200),(3,1,2,150),(4,2,3,400),(5,1,3,200),(6,2,1,110),(7,2,2,165),(8,3,1,75),(9,3,2,130),(10,4,1,135),(11,4,2,200),(12,4,3,260);
+/*!40000 ALTER TABLE `itemlistaprecio` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `itemMenu`
+-- Table structure for table `itemmenu`
 --
 
-DROP TABLE IF EXISTS `itemMenu`;
+DROP TABLE IF EXISTS `itemmenu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `itemMenu` (
+CREATE TABLE `itemmenu` (
   `idMenu` int(11) NOT NULL,
   `idProducto` int(11) NOT NULL,
   PRIMARY KEY (`idMenu`,`idProducto`),
@@ -232,23 +234,23 @@ CREATE TABLE `itemMenu` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `itemMenu`
+-- Dumping data for table `itemmenu`
 --
 
-LOCK TABLES `itemMenu` WRITE;
-/*!40000 ALTER TABLE `itemMenu` DISABLE KEYS */;
-INSERT INTO `itemMenu` VALUES (1,1),(2,2),(3,1);
-/*!40000 ALTER TABLE `itemMenu` ENABLE KEYS */;
+LOCK TABLES `itemmenu` WRITE;
+/*!40000 ALTER TABLE `itemmenu` DISABLE KEYS */;
+INSERT INTO `itemmenu` VALUES (1,1),(2,2),(3,1);
+/*!40000 ALTER TABLE `itemmenu` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `itemReceta`
+-- Table structure for table `itemreceta`
 --
 
-DROP TABLE IF EXISTS `itemReceta`;
+DROP TABLE IF EXISTS `itemreceta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `itemReceta` (
+CREATE TABLE `itemreceta` (
   `idItemReceta` int(11) NOT NULL AUTO_INCREMENT,
   `idReceta` int(11) NOT NULL,
   `idIngrediente` int(11) NOT NULL,
@@ -262,23 +264,23 @@ CREATE TABLE `itemReceta` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `itemReceta`
+-- Dumping data for table `itemreceta`
 --
 
-LOCK TABLES `itemReceta` WRITE;
-/*!40000 ALTER TABLE `itemReceta` DISABLE KEYS */;
-INSERT INTO `itemReceta` VALUES (1,1,3,100),(2,2,2,200),(3,1,2,40),(4,3,1,100);
-/*!40000 ALTER TABLE `itemReceta` ENABLE KEYS */;
+LOCK TABLES `itemreceta` WRITE;
+/*!40000 ALTER TABLE `itemreceta` DISABLE KEYS */;
+INSERT INTO `itemreceta` VALUES (1,1,3,100),(2,2,2,200),(3,1,2,40),(4,3,1,100);
+/*!40000 ALTER TABLE `itemreceta` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `itemRubro`
+-- Table structure for table `itemrubro`
 --
 
-DROP TABLE IF EXISTS `itemRubro`;
+DROP TABLE IF EXISTS `itemrubro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `itemRubro` (
+CREATE TABLE `itemrubro` (
   `idSubRubro` int(11) NOT NULL,
   `idRubro` int(11) NOT NULL,
   PRIMARY KEY (`idSubRubro`,`idRubro`),
@@ -290,23 +292,23 @@ CREATE TABLE `itemRubro` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `itemRubro`
+-- Dumping data for table `itemrubro`
 --
 
-LOCK TABLES `itemRubro` WRITE;
-/*!40000 ALTER TABLE `itemRubro` DISABLE KEYS */;
-INSERT INTO `itemRubro` VALUES (1,2),(2,3),(3,1);
-/*!40000 ALTER TABLE `itemRubro` ENABLE KEYS */;
+LOCK TABLES `itemrubro` WRITE;
+/*!40000 ALTER TABLE `itemrubro` DISABLE KEYS */;
+INSERT INTO `itemrubro` VALUES (1,2),(2,3),(3,1);
+/*!40000 ALTER TABLE `itemrubro` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `itemTicket`
+-- Table structure for table `itemticket`
 --
 
-DROP TABLE IF EXISTS `itemTicket`;
+DROP TABLE IF EXISTS `itemticket`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `itemTicket` (
+CREATE TABLE `itemticket` (
   `idItemTicket` int(11) NOT NULL AUTO_INCREMENT,
   `idProducto` int(11) NOT NULL,
   `idTicket` int(11) NOT NULL,
@@ -317,26 +319,27 @@ CREATE TABLE `itemTicket` (
   KEY `fk_ItemTicket_Ticket1_idx` (`idTicket`),
   CONSTRAINT `fk_ItemTicket_Producto1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ItemTicket_Ticket1` FOREIGN KEY (`idTicket`) REFERENCES `ticket` (`idTicket`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `itemTicket`
+-- Dumping data for table `itemticket`
 --
 
-LOCK TABLES `itemTicket` WRITE;
-/*!40000 ALTER TABLE `itemTicket` DISABLE KEYS */;
-/*!40000 ALTER TABLE `itemTicket` ENABLE KEYS */;
+LOCK TABLES `itemticket` WRITE;
+/*!40000 ALTER TABLE `itemticket` DISABLE KEYS */;
+INSERT INTO `itemticket` VALUES (1,3,1,200,2),(2,1,2,100,2),(3,3,3,400,2),(4,1,4,110,3),(5,1,1,100,2),(6,1,2,100,2),(7,2,2,100,1),(8,1,3,100,1),(9,1,3,100,1),(10,3,4,200,1),(11,1,4,100,1),(12,1,5,100,1),(13,2,5,100,1),(14,3,5,200,1),(15,1,6,100,2),(16,3,6,200,2),(17,1,7,100,5),(18,2,7,100,5),(19,3,8,200,3),(20,2,8,100,2),(21,3,10,200,5),(22,2,10,100,2),(23,1,15,110,3),(24,3,15,400,1),(25,1,16,110,2),(26,2,16,165,1);
+/*!40000 ALTER TABLE `itemticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `itemVianda`
+-- Table structure for table `itemvianda`
 --
 
-DROP TABLE IF EXISTS `itemVianda`;
+DROP TABLE IF EXISTS `itemvianda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `itemVianda` (
+CREATE TABLE `itemvianda` (
   `idProducto` int(11) NOT NULL,
   `idVianda` int(11) NOT NULL,
   PRIMARY KEY (`idProducto`,`idVianda`),
@@ -348,23 +351,23 @@ CREATE TABLE `itemVianda` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `itemVianda`
+-- Dumping data for table `itemvianda`
 --
 
-LOCK TABLES `itemVianda` WRITE;
-/*!40000 ALTER TABLE `itemVianda` DISABLE KEYS */;
-INSERT INTO `itemVianda` VALUES (1,1),(3,2),(2,3);
-/*!40000 ALTER TABLE `itemVianda` ENABLE KEYS */;
+LOCK TABLES `itemvianda` WRITE;
+/*!40000 ALTER TABLE `itemvianda` DISABLE KEYS */;
+INSERT INTO `itemvianda` VALUES (1,1),(3,2),(2,3);
+/*!40000 ALTER TABLE `itemvianda` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `listaPrecio`
+-- Table structure for table `listaprecio`
 --
 
-DROP TABLE IF EXISTS `listaPrecio`;
+DROP TABLE IF EXISTS `listaprecio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `listaPrecio` (
+CREATE TABLE `listaprecio` (
   `idListaPrecio` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date DEFAULT NULL,
   `idTipoCliente` int(11) NOT NULL,
@@ -375,13 +378,13 @@ CREATE TABLE `listaPrecio` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `listaPrecio`
+-- Dumping data for table `listaprecio`
 --
 
-LOCK TABLES `listaPrecio` WRITE;
-/*!40000 ALTER TABLE `listaPrecio` DISABLE KEYS */;
-INSERT INTO `listaPrecio` VALUES (1,'2017-01-00',1),(2,'2017-02-00',2),(3,'2017-03-00',4),(4,'2017-04-00',3),(5,'2016-08-02',2);
-/*!40000 ALTER TABLE `listaPrecio` ENABLE KEYS */;
+LOCK TABLES `listaprecio` WRITE;
+/*!40000 ALTER TABLE `listaprecio` DISABLE KEYS */;
+INSERT INTO `listaprecio` VALUES (1,'2017-01-00',1),(2,'2017-02-00',2),(3,'2017-03-00',4),(4,'2017-04-00',3),(5,'2016-08-02',2);
+/*!40000 ALTER TABLE `listaprecio` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -465,13 +468,13 @@ INSERT INTO `mesa` VALUES (1,1,1,1),(2,1,1,2),(3,1,1,3),(4,1,1,4),(5,1,1,5),(6,2
 UNLOCK TABLES;
 
 --
--- Table structure for table `mesaSimple`
+-- Table structure for table `mesasimple`
 --
 
-DROP TABLE IF EXISTS `mesaSimple`;
+DROP TABLE IF EXISTS `mesasimple`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `mesaSimple` (
+CREATE TABLE `mesasimple` (
   `idMesaSimple` int(11) NOT NULL,
   `idMesa` int(11) NOT NULL,
   `capacidad` int(11) NOT NULL,
@@ -482,13 +485,13 @@ CREATE TABLE `mesaSimple` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mesaSimple`
+-- Dumping data for table `mesasimple`
 --
 
-LOCK TABLES `mesaSimple` WRITE;
-/*!40000 ALTER TABLE `mesaSimple` DISABLE KEYS */;
-INSERT INTO `mesaSimple` VALUES (1,1,4),(2,2,4),(3,3,2);
-/*!40000 ALTER TABLE `mesaSimple` ENABLE KEYS */;
+LOCK TABLES `mesasimple` WRITE;
+/*!40000 ALTER TABLE `mesasimple` DISABLE KEYS */;
+INSERT INTO `mesasimple` VALUES (1,1,4),(2,2,4),(3,3,2);
+/*!40000 ALTER TABLE `mesasimple` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -597,7 +600,7 @@ CREATE TABLE `rubro` (
 
 LOCK TABLES `rubro` WRITE;
 /*!40000 ALTER TABLE `rubro` DISABLE KEYS */;
-INSERT INTO `rubro` VALUES (1,'Entrada'),(2,'Plato principal'),(3,'Postre');
+INSERT INTO `rubro` VALUES (1,'Entrada'),(2,'Platos y bebidas'),(3,'Postre');
 /*!40000 ALTER TABLE `rubro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -655,13 +658,13 @@ INSERT INTO `stock` VALUES (1,1,50,10,30),(2,3,50,15,32),(3,2,20,3,10);
 UNLOCK TABLES;
 
 --
--- Table structure for table `subRubro`
+-- Table structure for table `subrubro`
 --
 
-DROP TABLE IF EXISTS `subRubro`;
+DROP TABLE IF EXISTS `subrubro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `subRubro` (
+CREATE TABLE `subrubro` (
   `idSubRubro` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idSubRubro`)
@@ -669,13 +672,13 @@ CREATE TABLE `subRubro` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `subRubro`
+-- Dumping data for table `subrubro`
 --
 
-LOCK TABLES `subRubro` WRITE;
-/*!40000 ALTER TABLE `subRubro` DISABLE KEYS */;
-INSERT INTO `subRubro` VALUES (1,'Bebida'),(2,'Carnes'),(3,'Pastas');
-/*!40000 ALTER TABLE `subRubro` ENABLE KEYS */;
+LOCK TABLES `subrubro` WRITE;
+/*!40000 ALTER TABLE `subrubro` DISABLE KEYS */;
+INSERT INTO `subrubro` VALUES (1,'Bebida'),(2,'Carnes'),(3,'Pastas');
+/*!40000 ALTER TABLE `subrubro` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -699,11 +702,11 @@ CREATE TABLE `ticket` (
   KEY `fk_ticket_camarero1_idx` (`idCamarero`),
   KEY `fk_ticket_cliente1_idx` (`idCliente`),
   KEY `fk_ticket_mesa1_idx` (`idMesa`),
-  CONSTRAINT `fk_Ticket_Usuario1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_camarero1` FOREIGN KEY (`idCamarero`) REFERENCES `camarero` (`idCamarero`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_cliente1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ticket_mesa1` FOREIGN KEY (`idMesa`) REFERENCES `mesa` (`idMesa`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_ticket_mesa1` FOREIGN KEY (`idMesa`) REFERENCES `mesa` (`idMesa`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Ticket_Usuario1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -712,17 +715,18 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
+INSERT INTO `ticket` VALUES (1,1,1,1,1,400,'2018-05-15 16:53:30','\0'),(2,1,1,1,1,200,'2018-05-15 17:13:36','\0'),(3,3,1,1,2,800,'2018-05-20 12:57:23','\0'),(4,3,1,1,2,330,'2018-05-20 14:52:04','\0'),(5,1,1,1,1,200,'2018-05-15 12:37:00','\0'),(6,1,2,2,1,300,'2018-05-17 14:52:00','\0'),(7,2,1,3,1,200,'2018-05-10 14:33:00','\0'),(8,3,2,2,1,300,'2018-05-20 01:22:00','\0'),(9,4,3,1,1,400,'2018-05-20 13:13:00','\0'),(10,1,3,3,1,600,'2018-05-15 12:00:00','\0'),(11,4,3,4,1,1000,'2018-05-18 16:03:00','\0'),(12,2,1,2,1,800,'2018-03-14 18:00:00','\0'),(13,4,3,2,1,100,'2018-01-13 20:00:00','\0'),(14,1,1,1,1,1200,'2018-04-17 22:59:00','\0'),(15,3,1,1,2,730,'2018-05-28 15:14:42','\0'),(16,3,2,1,2,385,'2018-05-28 15:18:43','\0');
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tipoCliente`
+-- Table structure for table `tipocliente`
 --
 
-DROP TABLE IF EXISTS `tipoCliente`;
+DROP TABLE IF EXISTS `tipocliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tipoCliente` (
+CREATE TABLE `tipocliente` (
   `idTipoCliente` int(11) NOT NULL AUTO_INCREMENT,
   `tipo` varchar(45) NOT NULL,
   PRIMARY KEY (`idTipoCliente`),
@@ -731,23 +735,23 @@ CREATE TABLE `tipoCliente` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tipoCliente`
+-- Dumping data for table `tipocliente`
 --
 
-LOCK TABLES `tipoCliente` WRITE;
-/*!40000 ALTER TABLE `tipoCliente` DISABLE KEYS */;
-INSERT INTO `tipoCliente` VALUES (3,'Diamante'),(4,'nocliente'),(2,'Oro'),(1,'Plata');
-/*!40000 ALTER TABLE `tipoCliente` ENABLE KEYS */;
+LOCK TABLES `tipocliente` WRITE;
+/*!40000 ALTER TABLE `tipocliente` DISABLE KEYS */;
+INSERT INTO `tipocliente` VALUES (3,'Diamante'),(4,'nocliente'),(2,'Oro'),(1,'Plata');
+/*!40000 ALTER TABLE `tipocliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tipoUsuario`
+-- Table structure for table `tipousuario`
 --
 
-DROP TABLE IF EXISTS `tipoUsuario`;
+DROP TABLE IF EXISTS `tipousuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tipoUsuario` (
+CREATE TABLE `tipousuario` (
   `idTipoUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `tipoUsuario` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idTipoUsuario`)
@@ -755,13 +759,13 @@ CREATE TABLE `tipoUsuario` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tipoUsuario`
+-- Dumping data for table `tipousuario`
 --
 
-LOCK TABLES `tipoUsuario` WRITE;
-/*!40000 ALTER TABLE `tipoUsuario` DISABLE KEYS */;
-INSERT INTO `tipoUsuario` VALUES (1,'Admin'),(2,'Normal');
-/*!40000 ALTER TABLE `tipoUsuario` ENABLE KEYS */;
+LOCK TABLES `tipousuario` WRITE;
+/*!40000 ALTER TABLE `tipousuario` DISABLE KEYS */;
+INSERT INTO `tipousuario` VALUES (1,'Admin'),(2,'Normal');
+/*!40000 ALTER TABLE `tipousuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -781,8 +785,8 @@ CREATE TABLE `usuario` (
   UNIQUE KEY `nombreUsuario_UNIQUE` (`nombre`),
   KEY `fk_Usuario_TipoUsuario1_idx` (`idTipoUsuario`),
   KEY `fk_usuario_login1_idx` (`idLogin`),
-  CONSTRAINT `fk_Usuario_TipoUsuario1` FOREIGN KEY (`idTipoUsuario`) REFERENCES `tipousuario` (`idTipoUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_usuario_login1` FOREIGN KEY (`idLogin`) REFERENCES `login` (`idLogin`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_usuario_login1` FOREIGN KEY (`idLogin`) REFERENCES `login` (`idLogin`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Usuario_TipoUsuario1` FOREIGN KEY (`idTipoUsuario`) REFERENCES `tipousuario` (`idTipoUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -797,13 +801,13 @@ INSERT INTO `usuario` VALUES (1,2,'Matias','Torsello',1),(2,1,'Juan Pablo','Fede
 UNLOCK TABLES;
 
 --
--- Table structure for table `usuarioPrivilegio`
+-- Table structure for table `usuarioprivilegio`
 --
 
-DROP TABLE IF EXISTS `usuarioPrivilegio`;
+DROP TABLE IF EXISTS `usuarioprivilegio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `usuarioPrivilegio` (
+CREATE TABLE `usuarioprivilegio` (
   `idTipoUsuario` int(11) NOT NULL,
   `idPrivilegio` int(11) NOT NULL,
   PRIMARY KEY (`idTipoUsuario`,`idPrivilegio`),
@@ -815,12 +819,12 @@ CREATE TABLE `usuarioPrivilegio` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarioPrivilegio`
+-- Dumping data for table `usuarioprivilegio`
 --
 
-LOCK TABLES `usuarioPrivilegio` WRITE;
-/*!40000 ALTER TABLE `usuarioPrivilegio` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuarioPrivilegio` ENABLE KEYS */;
+LOCK TABLES `usuarioprivilegio` WRITE;
+/*!40000 ALTER TABLE `usuarioprivilegio` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuarioprivilegio` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -848,11 +852,11 @@ INSERT INTO `vianda` VALUES (1,'Vegetariana'),(2,'Rapida'),(3,'Dietetica');
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'SistemaRestaurante'
+-- Dumping events for database 'sistemarestaurante'
 --
 
 --
--- Dumping routines for database 'SistemaRestaurante'
+-- Dumping routines for database 'sistemarestaurante'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -864,4 +868,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-25 22:56:47
+-- Dump completed on 2018-05-31 13:10:29
