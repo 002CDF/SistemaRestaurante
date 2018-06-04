@@ -15,9 +15,16 @@
 <TITLE>Sistema Restaurante - Login</TITLE>
 </HEAD>
 <BODY>
-	<%@ include file="/cabecera.jsp"%>
-	<FORM method="POST" action="/SistemaRestaurante/Inicio ">
+			<%@ include file="/cabecera.jsp"%>
+			<FORM method="POST" action="/SistemaRestaurante/Inicio ">
 		<p><h4> Iniciar sesion: </h4><br></p>
+			<!-- Alertas de errores -->
+				<%if(session.getAttribute("errorLogin") != null){%>
+				<div class="alert alert-danger alert-dismissible col-md-3">
+ 				 <strong>Atención: </strong> <%out.println(session.getAttribute("errorLogin"));%>
+				</div>
+				<%session.setAttribute("errorLogin", null); }%>
+			<!-- Alertas de errores -->
 			  <div class="col-lg-3">
 				<label>Nombre de usuario </label>
 				<input class="form-control input-sm" name="nombreUsuario" type="text">

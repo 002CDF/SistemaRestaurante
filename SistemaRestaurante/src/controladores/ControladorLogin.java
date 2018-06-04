@@ -36,8 +36,12 @@ public class ControladorLogin extends HttpServlet {
 			request.getRequestDispatcher("/inicioRestaurante.jsp").forward(request, response);
 		}
 		catch (Exception e ) {
-			System.out.println(e.getMessage());
-			response .sendError(500, "Los datos ingresados no corresponden a un usuario válido." );
+			if(request.getParameter("nombreUsuario") != null){
+				session.setAttribute("errorLogin", "Usuario o contraseña invalido. Intentelo nuevamente");
+			}
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			//System.out.println(e.getMessage());
+			//response .sendError(500, "Los datos ingresados no corresponden a un usuario válido." );
 		}
 		//session.setAttribute("usuario", request.getAttribute("usuario"));
 	}
