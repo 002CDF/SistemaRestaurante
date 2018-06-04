@@ -4,6 +4,9 @@
 <%@page import="datos.Login"%>
 <%@page import="datos.Informe"%>
 <%@page import="negocio.Funciones"%>
+<% 	String nombreUsuario = (String) session.getAttribute("nombreUsuario");
+	if(nombreUsuario != null){
+%>
 <%
 	Informe informe = null; //Por defecto
 	int hayFecha = 0; //Por defecto
@@ -11,8 +14,6 @@
 	if(session.getAttribute("informe") != null) informe = (Informe) session.getAttribute("informe");
 	if(session.getAttribute("hayFecha") != null) hayFecha = (Integer) session.getAttribute("hayFecha");
 	if(session.getAttribute("informeDetallado") != null) informeDetallado = (Integer) session.getAttribute("informeDetallado");
-	String nombreUsuario = (String) session.getAttribute("nombreUsuario");
-	if (nombreUsuario != null) {
 %>
 <html>
 <head>

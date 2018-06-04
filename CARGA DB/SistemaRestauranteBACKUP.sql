@@ -88,7 +88,7 @@ CREATE TABLE `comanda` (
   PRIMARY KEY (`idComanda`),
   KEY `fk_Comanda_Mesa1_idx` (`idMesa`),
   CONSTRAINT `fk_Comanda_Mesa1` FOREIGN KEY (`idMesa`) REFERENCES `mesa` (`idMesa`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `comanda` (
 
 LOCK TABLES `comanda` WRITE;
 /*!40000 ALTER TABLE `comanda` DISABLE KEYS */;
-INSERT INTO `comanda` VALUES (1,1,'2018-05-15 16:51:56','\0'),(2,1,'2018-05-15 17:13:09','\0'),(3,1,'2018-05-20 12:56:39','\0'),(4,1,'2018-05-20 14:51:46','\0'),(5,1,'2017-06-04 12:54:33','\0'),(6,1,'2018-05-15 00:00:00','\0'),(7,2,'2018-05-17 10:00:00','\0'),(8,1,'2018-05-10 20:00:00','\0'),(9,2,'2018-05-20 01:00:00','\0'),(10,3,'2018-05-20 02:00:00','\0'),(11,3,'2018-05-15 03:00:00','\0'),(12,3,'2018-05-18 03:00:00','\0'),(13,4,'2018-05-14 04:00:00','\0'),(14,4,'2018-05-13 05:00:00','\0'),(15,5,'2018-05-20 06:00:00','\0'),(16,1,'2018-05-25 07:00:00','\0'),(17,1,'2018-05-20 08:00:00','\0'),(18,1,'2018-04-20 10:00:00','\0'),(19,3,'2018-04-20 15:00:00','\0'),(20,1,'2018-04-10 14:00:00','\0'),(21,4,'2018-04-15 14:00:00','\0'),(22,2,'2018-04-02 17:00:00','\0');
+INSERT INTO `comanda` VALUES (1,1,'2018-05-15 16:51:56','\0'),(2,1,'2018-05-15 17:13:09','\0'),(3,1,'2018-05-20 12:56:39','\0'),(4,1,'2018-05-20 14:51:46','\0'),(5,1,'2017-06-04 12:54:33','\0'),(6,1,'2018-05-15 00:00:00','\0'),(7,2,'2018-05-17 10:00:00','\0'),(8,1,'2018-05-10 20:00:00','\0'),(9,2,'2018-05-20 01:00:00','\0'),(10,3,'2018-05-20 02:00:00','\0'),(11,3,'2018-05-15 03:00:00','\0'),(12,3,'2018-05-18 03:00:00','\0'),(13,4,'2018-05-14 04:00:00','\0'),(14,4,'2018-05-13 05:00:00','\0'),(15,5,'2018-05-20 06:00:00','\0'),(16,1,'2018-05-25 07:00:00','\0'),(17,1,'2018-05-20 08:00:00','\0'),(18,1,'2018-04-20 10:00:00','\0'),(19,3,'2018-04-20 15:00:00','\0'),(20,1,'2018-04-10 14:00:00','\0'),(21,4,'2018-04-15 14:00:00','\0'),(22,2,'2018-04-02 17:00:00','\0'),(23,1,'2018-05-28 15:09:00','\0'),(24,1,'2018-05-28 15:13:58','\0'),(25,2,'2018-05-28 15:17:23','\0'),(26,2,'2018-05-28 15:17:39','\0');
 /*!40000 ALTER TABLE `comanda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,7 +172,7 @@ CREATE TABLE `itemcomanda` (
   KEY `fk_ItemComanda_Producto1_idx` (`idProducto`),
   CONSTRAINT `fk_ItemComanda_Comanda1` FOREIGN KEY (`idComanda`) REFERENCES `comanda` (`idComanda`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ItemComanda_Producto1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +181,7 @@ CREATE TABLE `itemcomanda` (
 
 LOCK TABLES `itemcomanda` WRITE;
 /*!40000 ALTER TABLE `itemcomanda` DISABLE KEYS */;
-INSERT INTO `itemcomanda` VALUES (1,1,3,2),(2,2,1,2),(3,3,3,2),(4,4,1,3),(5,1,1,1),(6,1,1,1),(7,1,1,2),(8,2,2,2),(9,2,2,2),(10,2,3,1),(11,3,2,1),(12,1,3,3),(13,5,3,2),(14,5,2,2),(15,6,2,3),(16,6,1,2),(17,6,1,1),(18,3,2,3),(19,3,3,3),(20,3,3,2),(21,2,2,2);
+INSERT INTO `itemcomanda` VALUES (1,1,3,2),(2,2,1,2),(3,3,3,2),(4,4,1,3),(5,1,1,1),(6,1,1,1),(7,1,1,2),(8,2,2,2),(9,2,2,2),(10,2,3,1),(11,3,2,1),(12,1,3,3),(13,5,3,2),(14,5,2,2),(15,6,2,3),(16,6,1,2),(17,6,1,1),(18,3,2,3),(19,3,3,3),(20,3,3,2),(21,2,2,2),(22,23,3,1),(23,23,1,2),(24,24,1,1),(25,25,2,1),(26,25,1,1),(27,26,1,1);
 /*!40000 ALTER TABLE `itemcomanda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -319,7 +319,7 @@ CREATE TABLE `itemticket` (
   KEY `fk_ItemTicket_Ticket1_idx` (`idTicket`),
   CONSTRAINT `fk_ItemTicket_Producto1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ItemTicket_Ticket1` FOREIGN KEY (`idTicket`) REFERENCES `ticket` (`idTicket`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -328,7 +328,7 @@ CREATE TABLE `itemticket` (
 
 LOCK TABLES `itemticket` WRITE;
 /*!40000 ALTER TABLE `itemticket` DISABLE KEYS */;
-INSERT INTO `itemticket` VALUES (1,3,1,200,2),(2,1,2,100,2),(3,3,3,400,2),(4,1,4,110,3),(5,1,1,100,2),(6,1,2,100,2),(7,2,2,100,1),(8,1,3,100,1),(9,1,3,100,1),(10,3,4,200,1),(11,1,4,100,1),(12,1,5,100,1),(13,2,5,100,1),(14,3,5,200,1),(15,1,6,100,2),(16,3,6,200,2),(17,1,7,100,5),(18,2,7,100,5),(19,3,8,200,3),(20,2,8,100,2),(21,3,10,200,5),(22,2,10,100,2);
+INSERT INTO `itemticket` VALUES (1,3,1,200,2),(2,1,2,100,2),(3,3,3,400,2),(4,1,4,110,3),(5,1,1,100,2),(6,1,2,100,2),(7,2,2,100,1),(8,1,3,100,1),(9,1,3,100,1),(10,3,4,200,1),(11,1,4,100,1),(12,1,5,100,1),(13,2,5,100,1),(14,3,5,200,1),(15,1,6,100,2),(16,3,6,200,2),(17,1,7,100,5),(18,2,7,100,5),(19,3,8,200,3),(20,2,8,100,2),(21,3,10,200,5),(22,2,10,100,2),(23,1,15,110,3),(24,3,15,400,1),(25,1,16,110,2),(26,2,16,165,1);
 /*!40000 ALTER TABLE `itemticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -600,7 +600,7 @@ CREATE TABLE `rubro` (
 
 LOCK TABLES `rubro` WRITE;
 /*!40000 ALTER TABLE `rubro` DISABLE KEYS */;
-INSERT INTO `rubro` VALUES (1,'Entrada'),(2,'Plato principal'),(3,'Postre');
+INSERT INTO `rubro` VALUES (1,'Entrada'),(2,'Platos y bebidas'),(3,'Postre');
 /*!40000 ALTER TABLE `rubro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -706,7 +706,7 @@ CREATE TABLE `ticket` (
   CONSTRAINT `fk_ticket_cliente1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_mesa1` FOREIGN KEY (`idMesa`) REFERENCES `mesa` (`idMesa`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Ticket_Usuario1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -715,7 +715,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (1,1,1,1,1,400,'2018-05-15 16:53:30','\0'),(2,1,1,1,1,200,'2018-05-15 17:13:36','\0'),(3,3,1,1,2,800,'2018-05-20 12:57:23','\0'),(4,3,1,1,2,330,'2018-05-20 14:52:04','\0'),(5,1,1,1,1,200,'2018-05-15 12:37:00','\0'),(6,1,2,2,1,300,'2018-05-17 14:52:00','\0'),(7,2,1,3,1,200,'2018-05-10 14:33:00','\0'),(8,3,2,2,1,300,'2018-05-20 01:22:00','\0'),(9,4,3,1,1,400,'2018-05-20 13:13:00','\0'),(10,1,3,3,1,600,'2018-05-15 12:00:00','\0'),(11,4,3,4,1,1000,'2018-05-18 16:03:00','\0'),(12,2,1,2,1,800,'2018-03-14 18:00:00','\0'),(13,4,3,2,1,100,'2018-01-13 20:00:00','\0'),(14,1,1,1,1,1200,'2018-04-17 22:59:00','\0');
+INSERT INTO `ticket` VALUES (1,1,1,1,1,400,'2018-05-15 16:53:30','\0'),(2,1,1,1,1,200,'2018-05-15 17:13:36','\0'),(3,3,1,1,2,800,'2018-05-20 12:57:23','\0'),(4,3,1,1,2,330,'2018-05-20 14:52:04','\0'),(5,1,1,1,1,200,'2018-05-15 12:37:00','\0'),(6,1,2,2,1,300,'2018-05-17 14:52:00','\0'),(7,2,1,3,1,200,'2018-05-10 14:33:00','\0'),(8,3,2,2,1,300,'2018-05-20 01:22:00','\0'),(9,4,3,1,1,400,'2018-05-20 13:13:00','\0'),(10,1,3,3,1,600,'2018-05-15 12:00:00','\0'),(11,4,3,4,1,1000,'2018-05-18 16:03:00','\0'),(12,2,1,2,1,800,'2018-03-14 18:00:00','\0'),(13,4,3,2,1,100,'2018-01-13 20:00:00','\0'),(14,1,1,1,1,1200,'2018-04-17 22:59:00','\0'),(15,3,1,1,2,730,'2018-05-28 15:14:42','\0'),(16,3,2,1,2,385,'2018-05-28 15:18:43','\0');
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -868,4 +868,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-21 18:04:07
+-- Dump completed on 2018-05-31 13:10:29
