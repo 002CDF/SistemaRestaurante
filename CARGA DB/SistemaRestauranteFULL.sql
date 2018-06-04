@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: sistemarestaurante
 -- ------------------------------------------------------
--- Server version	5.5.32
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -202,7 +202,7 @@ CREATE TABLE `itemlistaprecio` (
   KEY `fk_ItemListaPrecio_ListaPrecio1_idx` (`idListaPrecio`),
   CONSTRAINT `fk_ItemListaPrecio_ListaPrecio1` FOREIGN KEY (`idListaPrecio`) REFERENCES `listaprecio` (`idListaPrecio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ItemListaPrecio_Producto1` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +211,7 @@ CREATE TABLE `itemlistaprecio` (
 
 LOCK TABLES `itemlistaprecio` WRITE;
 /*!40000 ALTER TABLE `itemlistaprecio` DISABLE KEYS */;
-INSERT INTO `itemlistaprecio` VALUES (1,1,1,100),(2,3,3,200),(3,1,2,150),(4,2,3,400),(5,1,3,200),(6,2,1,110),(7,2,2,165),(8,3,1,75),(9,3,2,130),(10,4,1,135),(11,4,2,200),(12,4,3,260);
+INSERT INTO `itemlistaprecio` VALUES (1,1,1,50),(2,2,1,60),(3,3,1,70),(4,4,1,80),(5,5,1,90),(6,1,2,150),(7,2,2,160),(8,3,2,170),(9,4,2,180),(10,5,2,190),(11,1,3,130),(12,2,3,140),(13,3,3,150),(14,4,3,160),(15,5,3,170),(16,1,4,100),(17,2,4,110),(18,3,4,120),(19,4,4,130),(20,5,4,140),(21,1,5,110),(22,2,5,120),(23,3,5,130),(24,4,5,140),(25,5,5,150),(26,1,6,40),(27,2,6,50),(28,3,6,60),(29,4,6,70),(30,5,6,80),(31,1,7,30),(32,2,7,40),(33,3,7,50),(34,4,7,60),(35,5,7,70),(36,1,8,60),(37,2,8,70),(38,3,8,80),(39,4,8,90),(40,5,8,100),(41,1,9,70),(42,2,9,80),(43,3,9,90),(44,4,9,100),(45,5,9,110),(46,1,10,60),(47,2,10,70),(48,3,10,80),(49,4,10,90),(50,5,10,100),(51,1,11,70),(52,2,11,80),(53,3,11,90),(54,4,11,100),(55,5,11,110),(56,1,12,80),(57,2,12,90),(58,3,12,100),(59,4,12,110),(60,5,12,120),(61,1,13,60),(62,2,13,70),(63,3,13,80),(64,4,13,90),(65,5,13,100),(66,1,14,60),(67,2,14,70),(68,3,14,80),(69,4,14,90),(70,5,14,100);
 /*!40000 ALTER TABLE `itemlistaprecio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -542,7 +542,7 @@ CREATE TABLE `producto` (
   CONSTRAINT `fk_Producto_Receta1` FOREIGN KEY (`idReceta`) REFERENCES `receta` (`idReceta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Producto_Rubro1` FOREIGN KEY (`idRubro`) REFERENCES `rubro` (`idRubro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Producto_SubRubro` FOREIGN KEY (`idSubRubro`) REFERENCES `subrubro` (`idSubRubro`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -551,7 +551,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,1,1,1,'Cocacola','Primera marca, 650ml.',NULL,''),(2,1,2,2,'Cosecha tardia','Vino de la casa',NULL,''),(3,1,2,3,'Carne con papas','Abundante porcion',NULL,'');
+INSERT INTO `producto` VALUES (1,1,2,1,'Cocacola','Primera marca, 650ml.',NULL,''),(2,1,2,1,'Cosecha tardia','Vino de la casa',NULL,''),(3,1,2,2,'Carne con papas','Abundante porcion',NULL,''),(4,1,2,2,'Milanesa con papas','Abundante porcion',NULL,''),(5,1,2,3,'Fideos con tuco','Abundante porcion',NULL,''),(6,1,2,3,'Fideos con crema','Abundante porcion',NULL,''),(7,1,1,2,'Salamin','Primera marca',NULL,''),(8,1,1,2,'Empanaditas','Saltenias',NULL,''),(9,1,1,2,'Porcion Sushi','Degustacion',NULL,''),(10,1,1,1,'Cerveza','Degustacion',NULL,''),(11,1,3,4,'Flan','Casero',NULL,''),(12,1,3,4,'Panqueque','Dulce de leche',NULL,''),(13,1,3,4,'Torta','Abundante porcion',NULL,''),(14,1,3,4,'Helado','Variedad de sabores',NULL,'');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -668,7 +668,7 @@ CREATE TABLE `subrubro` (
   `idSubRubro` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idSubRubro`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -677,7 +677,7 @@ CREATE TABLE `subrubro` (
 
 LOCK TABLES `subrubro` WRITE;
 /*!40000 ALTER TABLE `subrubro` DISABLE KEYS */;
-INSERT INTO `subrubro` VALUES (1,'Bebida'),(2,'Carnes'),(3,'Pastas');
+INSERT INTO `subrubro` VALUES (1,'Bebida'),(2,'Carnes'),(3,'Pastas'),(4,'Dulces');
 /*!40000 ALTER TABLE `subrubro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -702,10 +702,10 @@ CREATE TABLE `ticket` (
   KEY `fk_ticket_camarero1_idx` (`idCamarero`),
   KEY `fk_ticket_cliente1_idx` (`idCliente`),
   KEY `fk_ticket_mesa1_idx` (`idMesa`),
+  CONSTRAINT `fk_Ticket_Usuario1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_camarero1` FOREIGN KEY (`idCamarero`) REFERENCES `camarero` (`idCamarero`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ticket_cliente1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ticket_mesa1` FOREIGN KEY (`idMesa`) REFERENCES `mesa` (`idMesa`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Ticket_Usuario1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_ticket_mesa1` FOREIGN KEY (`idMesa`) REFERENCES `mesa` (`idMesa`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -785,8 +785,8 @@ CREATE TABLE `usuario` (
   UNIQUE KEY `nombreUsuario_UNIQUE` (`nombre`),
   KEY `fk_Usuario_TipoUsuario1_idx` (`idTipoUsuario`),
   KEY `fk_usuario_login1_idx` (`idLogin`),
-  CONSTRAINT `fk_usuario_login1` FOREIGN KEY (`idLogin`) REFERENCES `login` (`idLogin`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Usuario_TipoUsuario1` FOREIGN KEY (`idTipoUsuario`) REFERENCES `tipousuario` (`idTipoUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_Usuario_TipoUsuario1` FOREIGN KEY (`idTipoUsuario`) REFERENCES `tipousuario` (`idTipoUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuario_login1` FOREIGN KEY (`idLogin`) REFERENCES `login` (`idLogin`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -850,14 +850,6 @@ LOCK TABLES `vianda` WRITE;
 INSERT INTO `vianda` VALUES (1,'Vegetariana'),(2,'Rapida'),(3,'Dietetica');
 /*!40000 ALTER TABLE `vianda` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'sistemarestaurante'
---
-
---
--- Dumping routines for database 'sistemarestaurante'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -868,4 +860,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-31 13:10:29
+-- Dump completed on 2018-06-03 23:41:32
