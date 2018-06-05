@@ -137,7 +137,7 @@ public class TicketDao {
 			fechaFinPosterior.add(Calendar.DAY_OF_YEAR, 1);
 			String fechaFinPost = ""+Funciones.traerNumeroAnio(fechaFinPosterior)+"-"+Funciones.traerNumeroMes(fechaFinPosterior)+"-"+Funciones.traerNumeroDiaMes(fechaFinPosterior);
 			iniciaOperacion();
-			lista= session.createQuery("from Ticket t inner join fetch t.cliente inner join fetch t.mesa inner join fetch t.camarero inner join fetch t.usuario where t.fechaEmision between '"+fechaInicio+"' and '"+fechaFinPost+"' order by t.fechaEmision").list();
+			lista= session.createQuery("from Ticket t left join fetch t.cliente inner join fetch t.mesa inner join fetch t.camarero inner join fetch t.usuario where t.fechaEmision between '"+fechaInicio+"' and '"+fechaFinPost+"' order by t.fechaEmision").list();
 		} finally {
 			session .close();
 		}

@@ -193,7 +193,8 @@ session.removeAttribute("informe");
 	<%for(int i=0 ; i<informe.getTickets().size() ; i++){ %>
 	<tr>
  		<td><%out.print(informe.getTickets().get(i).getIdTicket()); %></td>
- 		<td><%out.print(informe.getTickets().get(i).getCliente().getDni()); %></td> 
+ 		<td><%if(informe.getTickets().get(i).getCliente()!=null) out.print(informe.getTickets().get(i).getCliente().getDni()); 
+ 			  else out.print("S/D");%></td> 
  		<td><%out.print(informe.getTickets().get(i).getCamarero().getDni()); %></td>
  		<td><%out.print(informe.getTickets().get(i).getMesa().getNroMesa()); %></td>
  		<td><%out.print(Funciones.traerFechaCorta(informe.getTickets().get(i).getFechaEmision())); %></td>
