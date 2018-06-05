@@ -1,2 +1,0 @@
-INSERT INTO `sistemarestaurante`.`salon` (`idSalon`, `descripcion`) VALUES ('1', 'Comun');
-INSERT INTO `sistemarestaurante`.`salon` (`idSalon`, `descripcion`) VALUES ('2', 'VIP');

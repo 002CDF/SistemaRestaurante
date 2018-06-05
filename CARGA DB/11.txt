@@ -1,3 +1,0 @@
-INSERT INTO `sistemarestaurante`.`subrubro` (`idSubRubro`, `descripcion`) VALUES ('1', 'Gaseosa');
-INSERT INTO `sistemarestaurante`.`subrubro` (`idSubRubro`, `descripcion`) VALUES ('2', 'Vinos');
-INSERT INTO `sistemarestaurante`.`subrubro` (`idSubRubro`, `descripcion`) VALUES ('3', 'Carne vacuna');

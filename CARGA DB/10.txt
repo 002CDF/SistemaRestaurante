@@ -1,3 +1,0 @@
-INSERT INTO `sistemarestaurante`.`rubro` (`idRubro`, `descripcion`) VALUES ('1', 'Bebida');
-INSERT INTO `sistemarestaurante`.`rubro` (`idRubro`, `descripcion`) VALUES ('2', 'Carnes');
-INSERT INTO `sistemarestaurante`.`rubro` (`idRubro`, `descripcion`) VALUES ('3', 'Pastas');

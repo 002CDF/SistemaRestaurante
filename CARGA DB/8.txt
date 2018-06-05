@@ -1,3 +1,0 @@
-INSERT INTO `sistemarestaurante`.`ingrediente` (`nombre`, `descripcion`, `unidad`) VALUES ('1','Carne', 'carnes', 'kg');
-INSERT INTO `sistemarestaurante`.`ingrediente` (`idIngrediente`, `nombre`, `descripcion`, `unidad`) VALUES ('2', 'Pollo', 'carnes', 'kg');
-INSERT INTO `sistemarestaurante`.`ingrediente` (`idIngrediente`, `nombre`, `descripcion`, `unidad`) VALUES ('3', 'Tomate', 'verdura', 'kg');

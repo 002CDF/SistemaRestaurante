@@ -1,0 +1,4 @@
+INSERT INTO `sistemarestaurante`.`camarero` (`idCamarero`, `dni`, `nombre`, `apellido`) VALUES ('1', '111111111', 'Matias', 'Torsello');
+INSERT INTO `sistemarestaurante`.`camarero` (`idCamarero`, `dni`, `nombre`, `apellido`) VALUES ('2', '111111112', 'Juan Pablo', 'Federico');
+INSERT INTO `sistemarestaurante`.`camarero` (`idCamarero`, `dni`, `nombre`, `apellido`) VALUES ('3', '111111113', 'Lucio', 'Trucco');
+INSERT INTO `sistemarestaurante`.`camarero` (`idCamarero`, `dni`, `nombre`, `apellido`) VALUES ('4', '111111114', 'Ruben', 'Gomez');

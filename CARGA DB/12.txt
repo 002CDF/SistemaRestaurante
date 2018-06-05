@@ -1,3 +1,0 @@
-INSERT INTO `sistemarestaurante`.`producto` (`idProducto`, `idReceta`, `idRubro`, `idSubRubro`, `nombre`, `descripcion`, `habilitado`) VALUES ('1', '1', '1', '1', 'Cocacola', 'rica', 1);
-INSERT INTO `sistemarestaurante`.`producto` (`idProducto`, `idReceta`, `idRubro`, `idSubRubro`, `nombre`, `descripcion`, `habilitado`) VALUES ('2', '1', '2', '2', 'Cosecha tardia', 'asco', 1);
-INSERT INTO `sistemarestaurante`.`producto` (`idProducto`, `idReceta`, `idRubro`, `idSubRubro`, `nombre`, `descripcion`, `habilitado`) VALUES ('3', '1', '2', '3', 'Carne con papas', 'rico', 1);

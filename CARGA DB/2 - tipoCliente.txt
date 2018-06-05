@@ -1,0 +1,3 @@
+INSERT INTO `sistemarestaurante`.`tipocliente` (`idTipoCliente`, `tipo`) VALUES ('1', 'Plata');
+INSERT INTO `sistemarestaurante`.`tipocliente` (`idTipoCliente`, `tipo`) VALUES ('2', 'Oro');
+INSERT INTO `sistemarestaurante`.`tipocliente` (`idTipoCliente`, `tipo`) VALUES ('3', 'Diamante');

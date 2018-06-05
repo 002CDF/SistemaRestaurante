@@ -1,3 +1,0 @@
-INSERT INTO `sistemarestaurante`.`receta` (`idReceta`, `nombre`, `descripcion`) VALUES ('1', 'Milanesa con papas', 'Para compartir');
-INSERT INTO `sistemarestaurante`.`receta` (`idReceta`, `nombre`, `descripcion`) VALUES ('2', 'Papas con cheddar', 'Para compartir');
-INSERT INTO `sistemarestaurante`.`receta` (`idReceta`, `nombre`, `descripcion`) VALUES ('3', 'Carne al horno', 'Una persona');

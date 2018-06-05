@@ -1,4 +1,0 @@
-INSERT INTO `sistemarestaurante`.`cliente` (`idCliente`, `idTipoCliente`, `dni`, `nombre`, `apellido`, `numHabitacion`) VALUES ('1', '1', '39276649', 'Matias', 'Torsello', '1');
-INSERT INTO `sistemarestaurante`.`cliente` (`idCliente`, `idTipoCliente`, `dni`, `nombre`, `apellido`, `numHabitacion`) VALUES ('2', '1', '39872663', 'Lucio', 'Trucco', '2');
-INSERT INTO `sistemarestaurante`.`cliente` (`idCliente`, `idTipoCliente`, `dni`, `nombre`, `apellido`, `numHabitacion`) VALUES ('3', '1', '38765890', 'Juan Pablo', 'Federico', '3');
-INSERT INTO `sistemarestaurante`.`cliente` (`idCliente`, `idTipoCliente`, `dni`, `nombre`, `apellido`, `numHabitacion`) VALUES ('4', '1', '34567890', 'Nicolas', 'Gomez', '4');
